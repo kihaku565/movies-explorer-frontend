@@ -16,6 +16,7 @@ export default function MoviesCard({ card }) {
             <article className="movies-card__item">
                 <div className="movies-card__description">
                     <h2 className="movies-card__title">{card.title}</h2>
+                    <span className="movies-card__duration">{card.duration}</span>
                     {location.pathname === '/movies' && (
                         <button
                             type="button"
@@ -31,7 +32,6 @@ export default function MoviesCard({ card }) {
                         ></button>
                     )}
                 </div>
-                <span className="movies-card__duration">{card.duration}</span>
                 <img
                     src={card.poster}
                     alt={card.title}

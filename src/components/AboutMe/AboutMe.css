@@ -45,15 +45,15 @@
 .about-me__name {
     margin: 0;
     font-size: 50px;
-    line-height: 1.16;
+    line-height: 58px;
     font-weight: 400;
-    letter-spacing: -0.04em;
+    letter-spacing: -2px;
 }
 
 .about-me__age {
     font-weight: 500;
     font-size: 18px;
-    line-height: 1.11;
+    line-height: 20px;
     margin: 18px 0 0;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .about-me__socials {
-    margin: 100px 0 0;
+    margin: 76px 0 0;
     display: flex;
     gap: 20px;
     list-style: none;
@@ -87,6 +87,7 @@
 
 .about-me__avatar {
     width: 270px;
+    max-height: 327px;
     object-fit: cover;
     border-radius: 10px;
 }

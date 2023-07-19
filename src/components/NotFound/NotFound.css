@@ -2,29 +2,30 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 245px 0;
 }
 
 .not-found__text-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     margin: 0;
+    transform: translateX(3%);
 }
 
 .not-found__error {
     font-weight: 400;
     font-size: 140px;
-    line-height: 1.21;
+    line-height: normal;
 }
 
 .not-found__error-name {
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.19;
+    line-height: normal;
 }
 
 .not-found__button {
@@ -33,12 +34,10 @@
     cursor: pointer;
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.21;
+    line-height: normal;
     color: #2BE080;
-    padding: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    padding: 184px 0 0;
+    transform: translateX(20%);
     bottom: 60px;
     transition: all .3s ease;
 }

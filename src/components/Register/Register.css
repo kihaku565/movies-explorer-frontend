@@ -3,7 +3,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 70px 30px 59px;
     box-sizing: border-box;
@@ -16,7 +15,7 @@
     min-height: 525px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 36px;
     position: relative;
 }
 
@@ -24,7 +23,7 @@
     transition: all 0.3s ease;
     color: #2BE080;
     text-decoration: none;
-    line-height: 0;
+    line-height: normal;
     max-width: 38px;
 }
 
@@ -53,14 +52,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 30px;
+    gap: 20px;
 }
 
 .register__label {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 7px;
     cursor: pointer;
     position: relative;
 }
@@ -69,11 +68,12 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 1.2;
-    color: #8b8b8b;
+    color: #A0A0A0;
+    padding-top: 4px;
 }
 
 .register__input {
-    padding: 6px 0;
+    padding: 4px 0;
     box-sizing: border-box;
     border-style: none;
     border-bottom: 1px solid #424242;
@@ -81,7 +81,7 @@
     font-size: 14px;
     line-height: 1.21;
     background-color: transparent;
-    color: #fff;
+    color: #000;
 }
 
 .register__input_error {
@@ -109,7 +109,7 @@
     border-radius: 3px;
     color: #fff;
     font-size: 14px;
-    line-height: 1.21;
+    line-height: normal;
     width: 100%;
     padding: 14px 0;
     box-sizing: border-box;
@@ -135,8 +135,8 @@
 .register__support {
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.21;
-    color: #8b8b8b;
+    line-height: normal;
+    color: #A0A0A0;
     text-align: center;
     position: absolute;
     bottom: -7%;

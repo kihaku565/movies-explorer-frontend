@@ -8,7 +8,7 @@ export default function Footer() {
                     Учебный проект Яндекс.Практикум х BeatFilm.
                 </h2>
                 <div className="footer__navigation">
-                    <p className="footer__copyright">&copy;{new Date().getFullYear()}</p>
+                    <p className="footer__copyright">&copy; {new Date().getFullYear()}</p>
                     <ul className="footer__links-list">
                         <li>
                             <a
