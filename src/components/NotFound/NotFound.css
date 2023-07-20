@@ -47,6 +47,10 @@
 }
 
 @media screen and (max-width: 800px) {
+    .not-found {
+        padding-top: 406px;
+    }
+
     .not-found__button {
         bottom: 212px;
     }

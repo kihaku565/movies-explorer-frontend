@@ -76,7 +76,15 @@
 
 @media screen and (max-width: 800px) {
     .search {
-        padding: 73px 30px 61px;
+        padding: 80px 30px 39px;
+    }
+
+    .search__form {
+        grid-template-columns: 1fr 208px;
+    }
+
+    .search__button {
+        right: 32%;
     }
 }
 

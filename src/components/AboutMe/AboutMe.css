@@ -94,7 +94,7 @@
 
 @media screen and (max-width: 800px) {
     .about-me__container {
-        padding: 92px 50px;
+        padding: 92px 50px 91px;
     }
 
     .about-me__bio {
@@ -120,11 +120,12 @@
     }
 
     .about-me__socials {
-        margin-top: 87px;
+        margin-top: 50px;
     }
 
     .about-me__avatar {
         width: 255px;
+        max-height: 307px;
     }
 }
 

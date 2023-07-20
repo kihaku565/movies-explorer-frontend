@@ -143,6 +143,12 @@
     left: 23%;
 }
 
+@media screen and (max-width: 800px) {
+    .register {
+        padding: 232px 30px 59px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .register {
         padding-top: 56px;
