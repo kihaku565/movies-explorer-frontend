@@ -58,7 +58,7 @@ export default function Login() {
                     Войти
                 </button>
                 <span className="login__support">
-                    Ещё не зарегистрированы?&nbsp;
+                    Ещё не зарегистрированы?  &nbsp;
                     <Link to="signup" className="login__link">
                         Регистрация
                     </Link>

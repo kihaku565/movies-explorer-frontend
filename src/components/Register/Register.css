@@ -157,25 +157,33 @@
 
     .register__form {
         align-items: center;
-        gap: 50px;
+        gap: 46px;
         max-width: 260px;
         flex: 1;
     }
 
     .register__labels-container {
         margin-top: 30px;
-        gap: 40px;
+        gap: 20px;
     }
 
     .register__button {
+        margin-top: 195px;
         font-size: 12px;
-        line-height: 1.25;
+        line-height: normal;
     }
 
     .register__support {
         font-size: 12px;
-        line-height: 1.25;
-        bottom: -6%;
-        left: 15%;
+        bottom: -30px;
+        left: 14%;
+    }
+
+    .register__input {
+        padding: 0 0 8px;
+    }
+
+    .register__link {
+        margin-left: 4px;
     }
 }

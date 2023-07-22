@@ -146,20 +146,18 @@
     }
 
     .movies-card__description {
-        padding: 0 14px;
+        padding: 13px 14px 9px;
     }
 
     .movies-card__title {
-        font-size: 12px;
-        line-height: 1.25;
-        max-width: 240px;
+        font-size: 15px;
+        line-height: normal;
+        max-width: 210px;
     }
 
     .movies-card__duration {
-        padding: 0 14px;
-        font-size: 10px;
-        line-height: 1.2;
-        margin-top: 0;
+        font-size: 11px;
+        line-height: normal;
     }
 
     .movies-card__item {

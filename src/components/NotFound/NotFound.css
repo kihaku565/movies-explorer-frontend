@@ -57,7 +57,13 @@
 }
 
 @media screen and (max-width: 450px) {
+
+    .not-found {
+        padding-top: 329px;
+    }
+
     .not-found__text-container {
+        transform: translateX(0);
         gap: 10px;
     }
 
@@ -71,8 +77,9 @@
     }
 
     .not-found__button {
+        padding-top: 284px;
+        transform: translateX(0);
         font-size: 12px;
         line-height: 1.25;
-        bottom: 30px;
     }
 }

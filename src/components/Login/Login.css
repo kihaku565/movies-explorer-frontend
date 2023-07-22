@@ -79,7 +79,7 @@
     border-bottom: 1px solid #424242;
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.21;
+    line-height: normal;
     background-color: transparent;
     color: #000;
 }
@@ -145,7 +145,7 @@
 
 @media screen and (max-width: 800px) {
     .login {
-        padding-top: 232px; 
+        padding-top: 232px;
     }
 }
 
@@ -157,25 +157,30 @@
 
     .login__form {
         align-items: center;
-        gap: 50px;
+        gap: 46px;
         max-width: 260px;
         flex: 1;
     }
 
     .login__labels-container {
         margin-top: 30px;
-        gap: 40px;
+        gap: 17px;
+    }
+
+    .login__input {
+        padding: 2px 0 12px;
     }
 
     .login__button {
+        margin-top: 263px;
         font-size: 12px;
-        line-height: 1.25;
+        line-height: normal;
     }
 
     .login__support {
         font-size: 12px;
-        line-height: 1.25;
-        bottom: -6%;
-        left: 4%;
+        line-height: normal;
+        bottom: -30px;
+        left: 3%;
     }
 }

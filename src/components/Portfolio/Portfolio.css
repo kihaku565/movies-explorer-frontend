@@ -22,7 +22,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 1.11;
-    color: #8b8b8b;
+    color: #a0a0a0;
 }
 
 .portfolio__projects-list {
@@ -32,7 +32,6 @@
     gap: 20px;
     margin: 0;
     padding: 0;
-
 }
 
 .portfolio__projects-item {
@@ -83,10 +82,6 @@
         padding: 0px 50px 90px;
     }
 
-    .portfolio__title {
-        color: #a0a0a0;
-    }
-
     .portfolio__link {
         font-size: 28px;
         letter-spacing: -1.12px;
@@ -107,7 +102,19 @@
 
     .portfolio__title {
         font-size: 14px;
-        line-height: 1.43;
+        line-height: 20px;
+        font-feature-settings: 'clig' off, 'liga' off;
+    }
+
+    .portfolio__link {
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        line-height: 28px;
+    }
+
+    .portfolio__link::after {
+        right: -5px;
+        transform: translateY(-78%);
     }
 
 }

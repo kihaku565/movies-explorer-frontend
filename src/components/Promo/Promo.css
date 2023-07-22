@@ -68,9 +68,6 @@
         align-items: center;
         flex-direction: column-reverse;
         gap: 48px;
-    }
-
-    .promo__container {
         max-width: 728px;
         padding: 350px 60px 30px;
     }
@@ -98,12 +95,15 @@
 }
 
 @media screen and (max-width: 400px) {
-    .promo__container {
-        gap: 46px;
+
+    .promo {
+        padding-top: 14px;
     }
 
     .promo__container {
-        padding: 70px 10px 30px;
+        max-width: 292px;
+        padding: 220px 0 17px;
+        gap: 46px;
     }
 
     .promo__logo {
@@ -113,12 +113,12 @@
 
     .promo__title {
         font-size: 29px;
-        line-height: 1.27;
-        letter-spacing: -0.03em;
+        line-height: 37px;
+        letter-spacing: -1.16px;
     }
 
     .promo__about-project {
-        gap: 26px;
+        gap: 212px;
     }
 
     .promo__learn-more-link {

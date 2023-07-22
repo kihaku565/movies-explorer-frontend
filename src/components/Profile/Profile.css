@@ -55,7 +55,7 @@
     padding: 16px 0;
     box-sizing: border-box;
     border-style: none;
-    border-bottom: 1px solid #424242;
+    border-bottom: 1px solid #E8E8E8;
     font-weight: 400;
     font-size: 11px;
     line-height: 1.18;
@@ -100,7 +100,7 @@
     margin-top: auto;
     border: none;
     background-color: transparent;
-    color: #fff;
+    color: #000;
     font-weight: 400;
     font-size: 13px;
     line-height: 1.23;
@@ -156,7 +156,7 @@
 
     .profile__form {
         max-width: 260px;
-        min-height: 500px;
+        min-height: 597px;
         flex: 1;
         gap: 65px;
     }

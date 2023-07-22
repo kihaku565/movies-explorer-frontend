@@ -77,8 +77,9 @@
 
     .footer__title {
         font-size: 12px;
-        line-height: 1.25;
+        line-height: normal;
         padding-bottom: 21px;
+        font-feature-settings: 'clig' off, 'liga' off;
     }
 
     .footer__navigation {
@@ -89,8 +90,9 @@
 
     .footer__copyright {
         font-size: 12px;
-        line-height: 1.25;
-        color: #8b8b8b;
+        line-height: normal;
+        color: #A0A0A0;
+        font-feature-settings: 'clig' off, 'liga' off;
     }
 
     .footer__links-list {
@@ -101,6 +103,7 @@
 
     .footer__link {
         font-size: 12px;
-        line-height: 1.25;
+        line-height: normal;
+        font-feature-settings: 'clig' off, 'liga' off;
     }
 }

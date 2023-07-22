@@ -78,7 +78,8 @@
 
 @media screen and (max-width: 400px) {
     .hamburger-button {
-        right: 23px;
+        top: 18px;
+        right: 18px;
         width: 22px;
     }
 }
