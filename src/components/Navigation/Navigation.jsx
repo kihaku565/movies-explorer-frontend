@@ -45,9 +45,9 @@ export default function Navigation({ authorized, isBurgerOpened, onClickBurger }
               </NavLink>
             </li>
             <li className="navigation__item">
-            <NavLink to="/profile" className="navigation__link navigation__link_type_account" activeClassName={activeLink}>
-            Аккаунт
-          </NavLink>
+              <NavLink to="/profile" className="navigation__link navigation__link_type_account" activeClassName={activeLink}>
+                Аккаунт
+              </NavLink>
             </li>
           </ul>
         </nav>

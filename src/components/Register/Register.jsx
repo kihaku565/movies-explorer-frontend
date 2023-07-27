@@ -32,6 +32,7 @@ export default function Register() {
                             onChange={handleChange}
                             value={values.name || ''}
                             type="text"
+                            placeholder="Ваше имя"
                             required
                             minLength="2"
                             maxLength="30"
@@ -46,6 +47,7 @@ export default function Register() {
                             onChange={handleChange}
                             value={values.email || ''}
                             type="email"
+                            placeholder="Ваш e-mail"
                             required
                         />
                         <span className="register__error">{errors.email || ''}</span>
@@ -58,7 +60,10 @@ export default function Register() {
                             onChange={handleChange}
                             value={values.password || ''}
                             type="password"
+                            placeholder="Придумайте свой пароль"
                             required
+                            minLength="2"
+                            maxLength="30"
                         />
                         <span className="register__error">{errors.password || ''}</span>
                     </label>
@@ -72,7 +77,7 @@ export default function Register() {
                     Зарегистрироваться
                 </button>
                 <span className="register__support">
-                    Уже зарегистрированы?&nbsp;
+                    Уже зарегистрированы? &nbsp;
                     <Link to="signin" className="register__link">
                         Войти
                     </Link>

@@ -13,16 +13,17 @@
     align-items: center;
     gap: 4px;
     margin: 0;
-    transform: translateX(3%);
 }
 
 .not-found__error {
+    margin: 0;
     font-weight: 400;
     font-size: 140px;
     line-height: normal;
 }
 
 .not-found__error-name {
+    margin: 0;
     font-weight: 400;
     font-size: 16px;
     line-height: normal;
@@ -37,7 +38,6 @@
     line-height: normal;
     color: #2BE080;
     padding: 184px 0 0;
-    transform: translateX(20%);
     bottom: 60px;
     transition: all .3s ease;
 }

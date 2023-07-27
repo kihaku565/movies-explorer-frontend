@@ -12,8 +12,6 @@
   gap: 45px;
   width: 100%;
   padding: 18px 70px;
-  position: relative;
-  box-sizing: border-box;
 }
 
 .header__link {
@@ -28,7 +26,7 @@
 
 @media screen and (max-width: 800px) {
   .header__container {
-    padding: 18px 30px;
+    padding: 18px 30px 18px 30px;
   }
 }
 

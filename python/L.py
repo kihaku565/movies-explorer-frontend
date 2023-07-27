@@ -1,2 +1,0 @@
-children = input()
-candies = input()

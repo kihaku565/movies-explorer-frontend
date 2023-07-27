@@ -32,6 +32,7 @@ export default function Login() {
                             onChange={handleChange}
                             value={values.email || ''}
                             type="email"
+                            placeholder="Ваш e-mail"
                             required
                         />
                         <span className="login__error">{errors.email || ''}</span>
@@ -44,6 +45,7 @@ export default function Login() {
                             onChange={handleChange}
                             value={values.password || ''}
                             type="password"
+                            placeholder="Ваш пароль"
                             required
                         />
                         <span className="login__error">{errors.password || ''}</span>

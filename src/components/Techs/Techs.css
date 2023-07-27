@@ -61,16 +61,13 @@
 .techs__stack-item {
     background-color: #e8e8e8;
     border-radius: 10px;
-}
-
-.techs__stack-name {
     margin: 0;
     padding: 21px 0;
     text-align: center;
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.21;
-    letter-spacing: -0.04em;
+    line-height: normal;
+    letter-spacing: -0.56px;
 }
 
 @media screen and (max-width: 800px) {
@@ -93,9 +90,9 @@
         grid-template-columns: repeat(auto-fill, 84px);
     }
 
-    .techs__stack-name {
+    .techs__stack-item {
         font-size: 12px;
-        line-height: 1.25;
+        letter-spacing: -0.48px;
     }
 }
 

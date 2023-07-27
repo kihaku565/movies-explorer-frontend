@@ -1,6 +1,7 @@
 .navigation {
   display: grid;
   align-items: center;
+  justify-items: end;
 }
 
 .navigation__list {
@@ -69,7 +70,13 @@
 }
 
 .navigation__item:last-child {
-  margin-left: auto;
+  margin-left: calc((100vw - 768px) / (1280 - 768) * (710 - 200) + 200px);
+}
+
+@media screen and (min-width: 1280px) {
+  .navigation__item:last-child {
+    margin-left: 710px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -112,7 +119,7 @@
   }
 
   .navigation__list_state_closed {
-    right: -100%;
+    right: 0;
     visibility: hidden;
   }
 

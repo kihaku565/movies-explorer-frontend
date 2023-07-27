@@ -3,9 +3,9 @@
     align-items: center;
     position: absolute;
     top: 27px;
-    right: 27px;
-    width: 22px;
-    height: 22px;
+    right: 38px;
+    width: 28px;
+    height: 20px;
     cursor: pointer;
     z-index: 5;
     transition: all 0.3s ease;
@@ -25,12 +25,16 @@
     border-radius: 5px;
 }
 
+.hamburger-button_on {
+    right: 21px;
+}
+
 .hamburger-button_off>span,
 .hamburger-button_off>span::before,
 .hamburger-button_off>span::after {
     display: block;
     position: absolute;
-    width: 100%;
+    width: 28px;
     height: 3px;
     background-color: #000;
     transition: all .3s ease;
@@ -51,7 +55,7 @@
 .hamburger-button_on>span::after {
     display: block;
     position: absolute;
-    width: 100%;
+    width: 22px;
     height: 3px;
     background-color: #000;
     transform: rotate(45deg);

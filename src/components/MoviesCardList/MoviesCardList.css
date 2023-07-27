@@ -30,6 +30,7 @@
     font-size: 12px;
     line-height: 1.25;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .movies-card-list__show-more:hover {
@@ -37,9 +38,6 @@
 }
 
 @media screen and (max-width: 997px) {
-    .movies-card-list {
-        padding: 70px 30px 80px;
-    }
 
     .movies-card-list__list {
         grid-template-columns: repeat(2, 1fr);

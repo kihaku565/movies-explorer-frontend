@@ -1,4 +1,6 @@
 .search {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
     max-width: 1280px;
     width: 100%;
     padding: 70px 70px 69px;
@@ -8,12 +10,15 @@
 }
 
 .search__form {
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-columns: 1fr 227px;
     position: relative;
     background-color: #F9F9F9;
-    border-radius: 9px;
+    border-radius: 9px 0 0 9px;
+}
+
+.search__form:hover {
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
 }
 
 .search__input {
@@ -26,8 +31,7 @@
     font-size: 28px;
     line-height: 1.21;
     box-sizing: border-box;
-    padding: 15px 0px 23px 63px;
-    border-radius: 9px;
+    padding: 16px 0px 22px 15px;
 }
 
 .search__input::placeholder {
@@ -35,7 +39,10 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 20px;
+}
 
+.search__input:focus {
+    outline: 1px solid #2BE080;
 }
 
 .search__button {
@@ -46,13 +53,12 @@
     background-size: 34px 34px;
     background-color: transparent;
     box-sizing: border-box;
-    width: 34px;
+    width: 68px;
     height: 34px;
-    position: absolute;
-    top: 3%;
-    right: 22.5%;
-    transform: translateY(50%);
     transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 23px;
 }
 
 .search__button:hover {
@@ -66,12 +72,8 @@
     background-image: url("../../images/find-input.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 14px 14px;
-    position: absolute;
-    top: 50%;
-    left: 19px;
-    transform: translateY(-50%);
     box-sizing: border-box;
+    margin-left: 24px;
 }
 
 @media screen and (max-width: 800px) {
@@ -79,23 +81,36 @@
         padding: 80px 30px 39px;
     }
 
-    .search__form {
-        grid-template-columns: 1fr 208px;
+    .search__input {
+        padding-left: 14px;
+    }
+
+    .search__form {}
+
+    .search__form::before {
+        margin-left: 23px;
     }
 
     .search__button {
-        right: 32%;
+        margin-right: 10px;
     }
+}
+
+@media screen and (max-width: 630px) {
+    .search {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .search__form {
+        border-radius: 9px;
+    }
+
 }
 
 @media screen and (max-width: 400px) {
     .search {
         padding: 80px 10px 0;
-    }
-
-    .search__form {
-        grid-template-columns: 1fr;
-        background-color: transparent;
     }
 
     .search__input {
