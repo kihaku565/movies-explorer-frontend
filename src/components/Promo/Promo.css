@@ -8,10 +8,10 @@
 
 .promo__container {
     background-color: #f5f5f5;
-    max-width: 1200px;
+    max-width: calc((100vw - 768px) / (1280 - 768) * (1200 - 728) + 728px);
     width: 100%;
     border-radius: 10px;
-    padding: 160px 235px 30px;
+    padding: 160px 0 30px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -64,12 +64,13 @@
 }
 
 @media screen and (max-width: 800px) {
+
     .promo__container {
         align-items: center;
         flex-direction: column-reverse;
         gap: 48px;
-        max-width: 728px;
-        padding: 350px 60px 30px;
+        max-width: calc((100vw - 320px) / (768 - 320) * (728 - 292) + 292px);
+        padding: 351px 0 30px;
     }
 
     .promo__title {
@@ -86,7 +87,7 @@
 
     .promo__about-project {
         align-items: center;
-        gap: 314px;
+        gap: 313px;
     }
 
     .promo__learn-more-link {
@@ -101,7 +102,6 @@
     }
 
     .promo__container {
-        max-width: 292px;
         padding: 220px 0 17px;
         gap: 46px;
     }
@@ -123,5 +123,12 @@
 
     .promo__learn-more-link {
         margin-top: 54px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .promo__container {
+        max-width: 292px;
     }
 }

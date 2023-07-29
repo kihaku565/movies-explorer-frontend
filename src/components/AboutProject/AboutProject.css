@@ -9,7 +9,7 @@
 .about-project__container {
     max-width: 1280px;
     width: 100%;
-    padding: 110px 70px;
+    padding: 112px 70px 110px;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
@@ -24,7 +24,7 @@
     line-height: 1.23;
     letter-spacing: -0.04em;
     border-bottom: 1px solid #000;
-    padding-bottom: 23px;
+    padding-bottom: 22px;
     width: 100%;
 }
 
@@ -111,7 +111,7 @@
 
 @media screen and (max-width: 800px) {
     .about-project__container {
-        padding: 90px 50px;
+        padding: 91px 50px 90px;
     }
 
     .about-project__definition-description {
@@ -131,6 +131,11 @@
 
     .about-project__backend {
         width: 21%;
+        gap: 14px;
+    }
+
+    .about-project__backend-duration {
+        padding: 9px 0 10px;
     }
 
     .about-project__scheme-title {
@@ -175,7 +180,7 @@
     .about-project__backend-duration {
         font-size: 11px;
         line-height: normal;
-        padding: 11px 0;
+        padding: 11px 0 10px;
     }
 
     .about-project__frontend-duration {
@@ -192,7 +197,7 @@
 
     .about-project__backend {
         width: 35%;
-        gap: 9px;
+        gap: 10px;
     }
 
     .about-project__frontend {

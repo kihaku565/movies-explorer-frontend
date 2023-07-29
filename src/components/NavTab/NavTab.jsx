@@ -6,14 +6,14 @@ function NavTab() {
   return (
     <nav>
       <ul className="nav-tab">
-        <li className="nav-tab__link" href="#about">
-          О проекте
+        <li>
+          <a className="nav-tab__link" href="#about"> О проекте</a>
         </li>
-        <li className="nav-tab__link" href="#techs">
-          Технологии
+        <li>
+          <a className="nav-tab__link" href="#techs"> Технологии</a>
         </li>
-        <li className="nav-tab__link" href="#student">
-          Студент
+        <li>
+          <a className="nav-tab__link" href="#student"> Студент</a>
         </li>
       </ul>
     </nav >

@@ -27,6 +27,7 @@
     padding-bottom: 19px;
     border-bottom: 1px solid #e8e8e8;
     box-sizing: border-box;
+    font-feature-settings: 'clig' off, 'liga' off;
 }
 
 .footer__navigation {
@@ -65,14 +66,15 @@
 
 @media screen and (max-width: 800px) {
     .footer__container {
-        padding: 79px 23px 20px 37px;
+        padding: 79px 30px 19px;
+        gap: 18px;
     }
 }
 
 @media screen and (max-width: 400px) {
     .footer__container {
-        padding: 79px 10px 10px;
-        gap: 26px
+        padding: 79px 10px 19px;
+        gap: 27px
     }
 
     .footer__title {
@@ -85,7 +87,7 @@
     .footer__navigation {
         flex-direction: column-reverse;
         align-items: center;
-        gap: 30px;
+        gap: 29px;
     }
 
     .footer__copyright {

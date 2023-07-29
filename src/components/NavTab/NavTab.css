@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+  list-style-type: none;
 }
 
 @media (max-width: 500px) {
@@ -38,6 +39,7 @@
     width: 82px;
     height: 26px;
     font-size: 10px;
-    line-height: 1.6;
+    line-height: 16px;
+    border-radius: 6px;
   }
 }

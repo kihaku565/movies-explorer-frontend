@@ -1,7 +1,7 @@
 .navigation {
   display: grid;
   align-items: center;
-  justify-items: end;
+  /*justify-items: end;*/
 }
 
 .navigation__list {
@@ -40,13 +40,11 @@
   font-weight: 500;
 }
 
-.navigation__link_active_mobile {
-  border-bottom: 2px solid #000;
-}
+.navigation__link_active_mobile {}
 
 .navigation__link.navigation__link_landing {
   font-size: 12px;
-  line-height: 1.33;
+  line-height: 16px;
   font-weight: 500;
 }
 
@@ -62,22 +60,22 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  padding-left: 21px;
-  padding-right: 21px;
-  min-height: 30px;
+  width: 100px;
+  height: 32px;
   border-radius: 20px;
   background-color: #f9f9f9;
 }
 
 .navigation__item:last-child {
-  margin-left: calc((100vw - 768px) / (1280 - 768) * (710 - 200) + 200px);
+  margin-left: auto;
+  /*margin-left: calc((100vw - 768px) / (1280 - 768) * (710 - 200) + 200px);*/
 }
 
-@media screen and (min-width: 1280px) {
+/*@media screen and (min-width: 1280px) {
   .navigation__item:last-child {
-    margin-left: 710px;
+    margin-left: 730px;
   }
-}
+}*/
 
 @media screen and (max-width: 800px) {
   .navigation__link {
@@ -85,11 +83,10 @@
     font-size: 18px;
     line-height: normal;
     font-feature-settings: 'clig' off, 'liga' off;
-    padding-bottom: 5px;
   }
 
   .navigation__list_logged {
-    gap: 24px;
+    gap: 29px;
     position: absolute;
     top: 0;
     flex-direction: column;
@@ -106,16 +103,13 @@
   }
 
   .navigation__item:last-child {
-    margin: auto 0 86px 0
-  }
-
-  .navigation__item:first-child {
-    margin-top: 159px;
+    /*margin: 592px 0 auto 0;*/
   }
 
   .navigation__list_state_opened {
     right: 0;
     visibility: visible;
+    padding-top: 160px;
   }
 
   .navigation__list_state_closed {
@@ -124,7 +118,7 @@
   }
 
   .navigation_state_opened {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -141,6 +135,11 @@
 }
 
 @media screen and (max-width: 400px) {
+  .navigation_state_opened {
+    position: fixed;
+    padding-top: 145px;
+  }
+
   .navigation__list {
     gap: 14px;
   }
@@ -148,11 +147,6 @@
   .navigation__link.navigation__link_landing {
     font-size: 10px;
     line-height: 16px;
-  }
-
-  .navigation__link {
-    height: 35px;
-    padding: 0;
   }
 
   .navigation__link_signin {
@@ -164,16 +158,12 @@
   }
 
   .navigation__list_logged {
-    height: 136vh;
-    gap: 9px;
+    height: 100vh;
+    gap: 25px;
     width: 100%;
   }
 
-  .navigation__item:first-child {
-    margin-top: 139px;
-  }
-
   .navigation__item:last-child {
-    margin-bottom: 44px;
+    /*margin: 419px 0 auto 0;*/
   }
 }

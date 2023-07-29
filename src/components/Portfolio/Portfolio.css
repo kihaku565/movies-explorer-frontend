@@ -80,6 +80,7 @@
 @media screen and (max-width: 800px) {
     .portfolio__container {
         padding: 0px 50px 90px;
+        gap: 49px;
     }
 
     .portfolio__link {
@@ -90,7 +91,8 @@
     .portfolio__link::after {
         width: 23px;
         height: 17px;
-        transform: translateY(-125%);
+        transform: translateY(-119%);
+        right: 4px;
     }
 }
 

@@ -20,8 +20,8 @@
     margin: 0;
     font-weight: 400;
     font-size: 22px;
-    line-height: 1.23;
-    letter-spacing: -0.04em;
+    line-height: normal;
+    letter-spacing: -0.88px;
     border-bottom: 1px solid #000;
     padding-bottom: 22px;
     width: 100%;
@@ -54,14 +54,15 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
-    margin: 18px 0 0;
+    margin: 19px 0 0;
 }
 
 .about-me__text {
     margin: 26px 0 0;
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.57;
+    line-height: 22px;
+    font-feature-settings: 'clig' off, 'liga' off;
 }
 
 .about-me__socials {
@@ -94,7 +95,11 @@
 
 @media screen and (max-width: 800px) {
     .about-me__container {
-        padding: 92px 50px 91px;
+        padding: 91px 50px 92px;
+    }
+
+    .about-me__title {
+        padding-bottom: 23px;
     }
 
     .about-me__bio {
@@ -103,7 +108,8 @@
 
     .about-me__name {
         font-size: 40px;
-        line-height: 1;
+        line-height: 40px;
+        letter-spacing: -1.6px;
     }
 
     .about-me__age {
@@ -116,7 +122,7 @@
         margin-top: 20px;
         font-weight: 400;
         font-size: 12px;
-        line-height: 1.5;
+        line-height: 18px;
     }
 
     .about-me__socials {
@@ -125,7 +131,7 @@
 
     .about-me__avatar {
         width: 255px;
-        max-height: 307px;
+        max-height: 308px;
     }
 }
 
@@ -164,16 +170,17 @@
 
     .about-me__age {
         font-size: 11px;
-        line-height: 1.45;
+        line-height: 16px;
         margin-top: 20px;
     }
 
     .about-me__text {
         font-size: 11px;
-        line-height: 1.45;
+        line-height: 16px;
+        margin-top: 4px;
     }
 
     .about-me__socials {
-        margin-top: 40px;
+        margin-top: 8px;
     }
 }

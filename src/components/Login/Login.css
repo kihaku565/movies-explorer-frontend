@@ -1,17 +1,10 @@
 .login {
-    max-width: 1280px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 70px 30px 59px;
+    width: 396px;
+    padding: 70px 0 59px;
     box-sizing: border-box;
-    min-height: 100vh;
 }
 
 .login__form {
-    width: 100%;
-    max-width: 396px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -156,28 +149,26 @@
 
 @media screen and (max-width: 500px) {
     .login {
-        padding-top: 56px;
-        justify-content: flex-start;
+        width: 260px;
+        padding: 56px 0 0;
     }
 
     .login__form {
         align-items: center;
-        gap: 46px;
-        max-width: 260px;
-        flex: 1;
+        gap: 10px;
     }
 
     .login__labels-container {
         margin-top: 30px;
-        gap: 17px;
+        gap: 21px;
     }
 
     .login__input {
-        padding: 2px 0 12px;
+        padding: 6px 0 9px;
     }
 
     .login__button {
-        margin-top: 263px;
+        margin-top: 300px;
         font-size: 12px;
         line-height: normal;
     }
@@ -185,7 +176,6 @@
     .login__support {
         font-size: 12px;
         line-height: normal;
-        bottom: -30px;
-        left: 3%;
+        margin-top: 5px;
     }
 }

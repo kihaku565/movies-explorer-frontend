@@ -82,8 +82,30 @@
 
 @media screen and (max-width: 400px) {
     .hamburger-button {
-        top: 18px;
-        right: 18px;
+        top: 27px;
+        right: 23px;
         width: 22px;
+        height: 20.5px;
+    }
+
+    .hamburger-button_off>span,
+    .hamburger-button_off>span::before,
+    .hamburger-button_off>span::after {
+        display: block;
+        position: absolute;
+        width: 22px;
+        height: 2.5px;
+        background-color: #000;
+        transition: all .3s ease;
+    }
+
+    .hamburger-button_off>span::before {
+        content: "";
+        top: -9px;
+    }
+
+    .hamburger-button_off>span::after {
+        content: "";
+        top: 9px;
     }
 }

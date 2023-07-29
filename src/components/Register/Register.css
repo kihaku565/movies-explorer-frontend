@@ -1,18 +1,10 @@
 .register {
-    max-width: 1280px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 70px 30px 59px;
+    width: 396px;
+    padding: 70px 0 59px;
     box-sizing: border-box;
-    min-height: 100vh;
 }
 
 .register__form {
-    width: 100%;
-    max-width: 396px;
-    min-height: 525px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -151,21 +143,19 @@
 
 @media screen and (max-width: 800px) {
     .register {
-        padding: 232px 30px 59px;
+        padding: 232px 0 59px;
     }
 }
 
 @media screen and (max-width: 500px) {
     .register {
-        padding-top: 56px;
-        justify-content: flex-start;
+        width: 260px;
+        padding: 56px 0 0;;
     }
 
     .register__form {
         align-items: center;
-        gap: 46px;
-        max-width: 260px;
-        flex: 1;
+        gap: 10px;
     }
 
     .register__labels-container {
@@ -174,22 +164,17 @@
     }
 
     .register__button {
-        margin-top: 195px;
+        margin-top: 231px;
         font-size: 12px;
         line-height: normal;
     }
 
     .register__support {
+        margin-top: 5px;
         font-size: 12px;
-        bottom: -30px;
-        left: 14%;
     }
 
     .register__input {
-        padding: 0 0 8px;
-    }
-
-    .register__link {
-        margin-left: 4px;
+        padding: 6px 0 9px;
     }
 }
