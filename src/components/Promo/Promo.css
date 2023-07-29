@@ -1,0 +1,134 @@
+.promo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.promo__container {
+    background-color: #f5f5f5;
+    max-width: calc((100vw - 768px) / (1280 - 768) * (1200 - 728) + 728px);
+    width: 100%;
+    border-radius: 10px;
+    padding: 160px 0 30px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.promo__about-project {
+    display: flex;
+    flex-direction: column;
+    max-width: 730px;
+    gap: 150px;
+}
+
+.promo__title {
+    text-align: center;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+.promo__description {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    opacity: .5;
+    max-width: 310px;
+    margin: 0;
+}
+
+.promo__learn-more-link {
+    background-color: #e8e8e8;
+    margin-top: 110px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    border-radius: 3px;
+    padding: 9px 19px;
+    max-width: 89px;
+    text-align: center;
+    transition: all .1s ease;
+}
+
+.promo__learn-more-link:hover {
+    transform: scale(1.05);
+    opacity: .7;
+}
+
+@media screen and (max-width: 800px) {
+
+    .promo__container {
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 48px;
+        max-width: calc((100vw - 320px) / (768 - 320) * (728 - 292) + 292px);
+        padding: 351px 0 30px;
+    }
+
+    .promo__title {
+        font-size: 40px;
+        font-style: normal;
+        line-height: 52px;
+        letter-spacing: -1.6px;
+    }
+
+    .promo__description {
+        text-align: center;
+        max-width: 260px;
+    }
+
+    .promo__about-project {
+        align-items: center;
+        gap: 313px;
+    }
+
+    .promo__learn-more-link {
+        margin-top: 70px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .promo {
+        padding-top: 14px;
+    }
+
+    .promo__container {
+        padding: 220px 0 17px;
+        gap: 46px;
+    }
+
+    .promo__logo {
+        max-width: 210px;
+        transition: all .1s ease;
+    }
+
+    .promo__title {
+        font-size: 29px;
+        line-height: 37px;
+        letter-spacing: -1.16px;
+    }
+
+    .promo__about-project {
+        gap: 212px;
+    }
+
+    .promo__learn-more-link {
+        margin-top: 54px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .promo__container {
+        max-width: 292px;
+    }
+}

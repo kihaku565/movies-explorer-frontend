@@ -1,0 +1,116 @@
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 40px;
+    padding: 16px 30px 16px 29px;
+    border-left: 1px solid #E8E8E8;
+    background-color: #F9F9F9;
+    border-radius: 0 9px 9px 0;
+}
+
+.filter-container {
+    vertical-align: middle;
+    font-size: 14px;
+    user-select: none;
+    cursor: pointer;
+    transition: all .3s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.filter-container:hover {
+    opacity: .8;
+}
+
+.filter-container .filter__tumbler {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 36px;
+    height: 20px;
+    border-radius: 25%/50%;
+    vertical-align: top;
+    background: #E8E8E8;
+    transition: .2s;
+}
+
+.filter-container .filter__tumbler:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #E8E8E8;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    transition: .15s;
+}
+
+.filter-container .filter__checkbox {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.filter-container .filter__checkbox:not(:disabled):active+.filter__tumbler:before {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+}
+
+.filter-container .filter__checkbox:checked+.filter__tumbler {
+    background: #2BE080;
+}
+
+.filter-container .filter__checkbox:checked+.filter__tumbler:before {
+    transform: translateX(18px);
+    background: #fff;
+}
+
+.filter__text {
+    margin: 0;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    font-style: normal;
+    color: #000;
+}
+
+@media screen and (max-width: 989px) {
+    .filte-checkbox {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 989px) {
+    .filter {
+        padding-left: 19px;
+        padding-right: 20px;
+        gap: 15px;
+    }
+}
+
+
+@media screen and (max-width: 630px) {
+    .filte-checkbox {
+        margin-top: 35px;
+        margin-bottom: 34px;
+    }
+
+    .filter {
+        justify-content: center;
+        padding-top: 35px;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        background: none;
+    }
+
+    .filter__text {
+        font-size: 11px;
+    }
+
+}
