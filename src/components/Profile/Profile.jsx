@@ -29,6 +29,7 @@ export default function Profile() {
                                 onChange={handleChange}
                                 value={values.name || 'Василий'}
                                 type="text"
+                                placeholder="Имя"
                                 required
                                 minLength="2"
                                 maxLength="30"
@@ -43,7 +44,10 @@ export default function Profile() {
                                 onChange={handleChange}
                                 value={values.email || 'vas.matyushkin@yandex.ru'}
                                 type="email"
+                                placeholder="Пароль"
                                 required
+                                minLength="2"
+                                maxLength="30"
                             />
                             <span className="profile__error">{errors.email || ''}</span>
                         </label>

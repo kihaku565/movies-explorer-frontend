@@ -48,6 +48,8 @@ export default function Login() {
                                 type="password"
                                 placeholder="Ваш пароль"
                                 required
+                                minLength="2"
+                                maxLength="30"
                             />
                             <span className="login__error">{errors.password || ''}</span>
                         </label>

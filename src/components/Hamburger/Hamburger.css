@@ -82,8 +82,8 @@
 
 @media screen and (max-width: 400px) {
     .hamburger-button {
-        top: 19px;
-        right: 18px;
+        top: 28px; /* 19px что тут блин происходит??? */
+        right: 23px; /* 18px я задолбался менять эти 2 значения */
         width: 22px;
         height: 20.5px;
     }
