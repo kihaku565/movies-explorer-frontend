@@ -21,6 +21,8 @@ export default function Profile({ handleSignOut, handleProfile }) {
         }
     }, [currentUser, resetForm]);
 
+    const requirementValidity = (!isValid || (currentUser.name === values.name && currentUser.email === values.email));
+
     return (
         <main>
             <section className="profile">
@@ -62,9 +64,9 @@ export default function Profile({ handleSignOut, handleProfile }) {
                     <div className="profile__button-container">
                         <button
                             type="submit"
-                            className={`profile__button-edit ${(!isValid || (currentUser.name === values.name && currentUser.email === values.email)) ? 'profile__button-edit_disabled' : ''
+                            className={`profile__button-edit ${requirementValidity ? 'profile__button-edit_disabled' : ''
                                 }`}
-                            disabled={(!isValid || (currentUser.name === values.name && currentUser.email === values.email)) ? true : false}
+                            disabled={requirementValidity ? true : false}
                         >
                             Редактировать
                         </button>
