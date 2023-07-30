@@ -76,6 +76,16 @@
     margin-left: 22px;
 }
 
+.search__error {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #ee3465;
+    position: absolute;
+    top: 70px;
+    left: 0;
+}
+
 @media screen and (max-width: 800px) {
     .search {
         padding: 80px 30px 109px;
@@ -134,5 +144,10 @@
 
     .search__form::before {
         content: none;
+    }
+
+    .search__error {
+        font-size: 10px;
+        top: 60px;
     }
 }
