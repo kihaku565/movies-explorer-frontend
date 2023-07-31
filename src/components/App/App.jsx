@@ -2,7 +2,8 @@ import './App.css';
 import mainApi from '../../utils/MainApi.js';
 import CurrentUserContext from '../../contexts/CurrentUserContext.jsx';
 import { useState, useEffect } from 'react';
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import { Route, Switch, Redirect, useHistory, useLocation } from 'react-router-dom';
+import useEscapePress from '../../hooks/useEscapePress.jsx';
 import Header from '../Header/Header.jsx';
 import Main from '../Main/Main.jsx';
 import Footer from '../Footer/Footer.jsx';
@@ -35,9 +36,11 @@ export default function App() {
   const footerEndpoints = ['/movies', '/saved-movies', '/'];
 
   // нажатие по бургерному меню
-  function onClickBurger(isBurgerOpened) {
+  function onClickBurger() {
     setIsBurgerOpened(!isBurgerOpened);
   }
+
+  useEscapePress(onClickBurger, isBurgerOpened);
 
   //закрытие попапа с информацией
   function closeInfoTooltip() {
@@ -74,8 +77,8 @@ export default function App() {
       .login(email, password)
       .then(jwt => {
         if (jwt.token) {
-          setLoggedIn(true);
           localStorage.setItem('jwt', jwt.token);
+          setLoggedIn(true);
           history.push('/movies');
           setIsInfoTooltip({
             isOpen: true,
@@ -106,7 +109,7 @@ export default function App() {
     setIsLoader(true);
     mainApi
       .updateUser(name, email)
-      .then((newUserData) => {
+      .then(newUserData => {
         setCurrentUser(newUserData);
         setIsInfoTooltip({
           isOpen: true,
@@ -114,7 +117,7 @@ export default function App() {
           text: 'Ваши данные обновлены!',
         });
       })
-      .catch((err) =>
+      .catch(err =>
         setIsInfoTooltip({
           isOpen: true,
           successful: false,
@@ -140,14 +143,9 @@ export default function App() {
 
   // удаление фильма
   function handleDeleteMovie(movie) {
-    const savedMovie = savedMoviesList.find(item => {
-      if (item.movieId === movie.id || item.movieId === movie.movieId) {
-        console.log(item);
-        return item;
-      } else {
-        return savedMoviesList;
-      }
-    });
+    const savedMovie = savedMoviesList.find(
+      (item) => item.movieId === movie.id || item.movieId === movie.movieId
+    );
     mainApi
       .deleteMovie(savedMovie._id)
       .then(() => {
@@ -177,14 +175,14 @@ export default function App() {
       setIsLoader(true);
       mainApi
         .getUserInfo()
-        .then((data) => {
+        .then(data => {
           if (data) {
             setLoggedIn(true);
             setCurrentUser(data);
             history.push(path);
           }
         })
-        .catch((err) =>
+        .catch(err =>
           setIsInfoTooltip({
             isOpen: true,
             successful: false,
@@ -220,10 +218,13 @@ export default function App() {
 
   // получение массива сохраненных фильмов
   useEffect(() => {
-    if (loggedIn) {
+    if (loggedIn && currentUser) {
       mainApi
         .getSavedMovies()
-        .then(data => setSavedMoviesList(data))
+        .then(data => {
+          const UserMoviesList = data.filter(m => m.owner === currentUser._id);
+          setSavedMoviesList(UserMoviesList);
+        })
         .catch(err =>
           setIsInfoTooltip({
             isOpen: true,
@@ -232,7 +233,7 @@ export default function App() {
           })
         );
     }
-  }, [loggedIn]);
+  }, [currentUser, loggedIn]);
 
   return (
     <div className="app">
@@ -248,17 +249,25 @@ export default function App() {
             />
           </Route>
           <Switch>
-            <Route exact path="/">
+            <Route exact path='/'>
               <Main />
             </Route>
-            <Route exact path="/signup">
-              <Register handleRegister={handleRegister} />
+            <Route exact path='/signup'>
+              {!loggedIn ? (
+                <Register handleRegister={handleRegister} />
+              ) : (
+                <Redirect to='/' />
+              )}
             </Route>
-            <Route exact path="/signin">
-              <Login handleLogin={handleLogin} />
+            <Route exact path='/signin'>
+              {!loggedIn ? (
+                <Login handleLogin={handleLogin} />
+              ) : (
+                <Redirect to='/' />
+              )}
             </Route>
             <ProtectedRoute
-              path="/movies"
+              path='/movies'
               component={Movies}
               loggedIn={loggedIn}
               setIsLoader={setIsLoader}
@@ -268,7 +277,7 @@ export default function App() {
               onDeleteClick={handleDeleteMovie}
             />
             <ProtectedRoute
-              path="/saved-movies"
+              path='/saved-movies'
               component={SavedMovies}
               loggedIn={loggedIn}
               savedMoviesList={savedMoviesList}
@@ -276,13 +285,13 @@ export default function App() {
               setIsInfoTooltip={setIsInfoTooltip}
             />
             <ProtectedRoute
-              path="/profile"
+              path='/profile'
               component={Profile}
               loggedIn={loggedIn}
               handleProfile={handleProfile}
               handleSignOut={handleSignOut}
             />
-            <Route path="*">
+            <Route path='*'>
               <NotFound goBack={goBack} />
             </Route>
           </Switch>
@@ -290,7 +299,10 @@ export default function App() {
             <Footer />
           </Route>
           <Preloader isOpen={isLoader} />
-          <InfoTooltip status={isInfoTooltip} onClose={closeInfoTooltip} />
+          <InfoTooltip
+            status={isInfoTooltip}
+            onClose={closeInfoTooltip}
+          />
         </CurrentUserContext.Provider>
       )}
     </div>

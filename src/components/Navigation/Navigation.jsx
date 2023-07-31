@@ -6,6 +6,10 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
 
   const activeLink = `navigation__link_active_${isBurgerOpened ? 'mobile' : 'desktop'}`;
 
+  function handleClickOverlay(e) {
+    e.stopPropagation();
+  }
+
   return (
     <>
       {!loggedIn ? (
@@ -24,9 +28,9 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
           </ul>
         </nav>
       ) : (
-        <nav className={`navigation navigation_state_${isBurgerOpened ? 'opened' : 'closed'}`}>
+        <nav className={`navigation navigation_state_${isBurgerOpened ? 'opened' : 'closed'}`} onClick={isBurgerOpened ? onClickBurger : undefined}>
           <Hamburger isBurgerOpened={isBurgerOpened} onClickBurger={onClickBurger} />
-          <ul className={`navigation__list navigation__list_logged navigation__list_state_${isBurgerOpened ? 'opened' : 'closed'}`}>
+          <ul className={`navigation__list navigation__list_logged navigation__list_state_${isBurgerOpened ? 'opened' : 'closed'}`} onClick={handleClickOverlay}>
             {isBurgerOpened && (
               <li className="navigation__item">
                 <NavLink exact to="/" className="navigation__link" activeClassName={activeLink}>
