@@ -1,34 +1,40 @@
 import './Footer.css';
 
-export default function Footer() {
+function Footer() {
     return (
         <footer className="footer">
-            <div className="footer__container">
-                <h2 className="footer__title">
+            <section className="footer__container">
+                <p className="footer__about">
                     Учебный проект Яндекс.Практикум х BeatFilm.
-                </h2>
-                <div className="footer__navigation">
-                    <p className="footer__copyright">&copy; {new Date().getFullYear()}</p>
-                    <ul className="footer__links-list">
-                        <li>
+                </p>
+                <div className="footer__info">
+                    <p className="footer__year">&copy; 2023</p>
+                    <ul className="footer__list">
+                        <li className="footer__list-item">
                             <a
+                                className="footer__list-link"
                                 href="https://practicum.yandex.ru/"
                                 target="_blank"
-                                rel="noreferrer"
-                                className="footer__link"
-                            >Яндекс.Практикум</a>
+                                rel="noopener noreferrer"
+                            >
+                                Яндекс.Практикум
+                            </a>
                         </li>
-                        <li>
+                        <li className="footer__list-item">
                             <a
+                                className="footer__list-link"
                                 href="https://github.com/kihaku565"
                                 target="_blank"
-                                rel="noreferrer"
-                                className="footer__link"
-                            >Github</a>
+                                rel="noopener noreferrer"
+                            >
+                                Github
+                            </a>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </section>
         </footer>
     );
 }
+
+export default Footer;

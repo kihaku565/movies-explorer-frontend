@@ -1,81 +1,74 @@
-import './Profile.css';
-import { useEffect, useContext } from 'react';
-import CurrentUserContext from '../../contexts/CurrentUserContext.jsx';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import useFormWithValidation from '../../hooks/useFormWithValidation.jsx';
+import useFormValidator from '../../hooks/useFormValidator'
+import './Profile.css';
 
-export default function Profile({ handleSignOut, handleProfile }) {
-    const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
-    const currentUser = useContext(CurrentUserContext); // подписка на контекст
+function Profile() {
+    const {
+        values: formValues,
+        errors: formErrors,
+        isValid: isFormValid,
+        handleInputChange,
+        resetForm
+    } = useFormValidator();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        handleProfile(values);
+    useEffect(() => {
+        resetForm();
+    }, [resetForm])
+
+    function handleProfileSubmit(event) {
+        event.preventDefault();
     }
 
-    // после загрузки текущего пользователя из API
-    // его данные будут использованы в управляемых компонентах.
-    useEffect(() => {
-        if (currentUser) {
-            resetForm(currentUser, {}, true);
-        }
-    }, [currentUser, resetForm]);
-
-    const requirementValidity = (!isValid || (currentUser.name === values.name && currentUser.email === values.email));
-
     return (
-        <main>
-            <section className="profile">
-                <form className="profile__form" name="profile" noValidate onSubmit={handleSubmit}>
-                    <h1 className="profile__title">{`Привет, ${currentUser.name || ''}!`}</h1>
-                    <div className="profile__labels-container">
-                        <label className="profile__name">
-                            <span className="profile__label-text">Имя</span>
-                            <input
-                                name="name"
-                                className={`profile__input ${errors.name && 'profile__input_error'}`}
-                                onChange={handleChange}
-                                value={values.name || ''}
-                                type="text"
-                                placeholder="Имя"
-                                required
-                                minLength="2"
-                                maxLength="30"
-                                pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
-                            />
-                            <span className="profile__error-name">{errors.name || ''}</span>
-                        </label>
-                        <label className="profile__email">
-                            <span className="profile__label-text">E-mail</span>
-                            <input
-                                name="email"
-                                className={`profile__input ${errors.email && 'profile__input_error'}`}
-                                onChange={handleChange}
-                                value={values.email || ''}
-                                type="email"
-                                placeholder="Пароль"
-                                required
-                                minLength="2"
-                                maxLength="30"
-                            />
-                            <span className="profile__error">{errors.email || ''}</span>
-                        </label>
-                    </div>
-                    <div className="profile__button-container">
-                        <button
-                            type="submit"
-                            className={`profile__button-edit ${requirementValidity ? 'profile__button-edit_disabled' : ''
-                                }`}
-                            disabled={requirementValidity ? true : false}
-                        >
-                            Редактировать
-                        </button>
-                        <Link to="/" className="profile__button-exit" onClick={handleSignOut}>
-                            Выйти из аккаунта
-                        </Link>
-                    </div>
-                </form>
-            </section>
+        <main className="profile">
+            <h2 className="profile__title">Привет, Василий!</h2>
+            <form className="profile__form" name="profile" noValidate onSubmit={handleProfileSubmit}>
+                <label className="profile__label">
+                    <span className="profile__input-title">Имя</span>
+                    <input
+                        type="text"
+                        placeholder="Имя"
+                        className="profile__input"
+                        id="edit-name"
+                        name="name"
+                        required
+                        minLength="2"
+                        maxLength="30"
+                        value={formValues.name}
+                        onChange={handleInputChange}
+                    />
+                    <span className="profile__error">{formErrors.name || ''}</span>
+                </label>
+                <label className="profile__label">
+                    <span className="profile__input-title">E-mail</span>
+                    <input
+                        type="email"
+                        placeholder="E-mail"
+                        className="profile__input"
+                        id="edit-email"
+                        name="email"
+                        required
+                        value={formValues.email}
+                        onChange={handleInputChange}
+                    />
+                    <span className="profile__error">{formErrors.email || ''}</span>
+                </label>
+            </form>
+            <nav className="profile__navigation">
+                <button
+                    type="submit"
+                    className={`profile__edit-button ${!isFormValid && 'profile__edit-button_disable'}`}
+                    disabled={!isFormValid}
+                >
+                    Редактировать
+                </button>
+                <Link to="/" className="profile__logout-link">
+                    Выйти из аккаунта
+                </Link>
+            </nav>
         </main>
-    )
+    );
 }
+
+export default Profile;

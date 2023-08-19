@@ -1,85 +1,80 @@
 .not-found {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 245px 0;
+    height: 100vh;
 }
 
-.not-found__text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+.not-found__title {
     margin: 0;
-}
-
-.not-found__error {
-    margin: 0;
-    font-weight: 400;
+    margin-top: 250px;
     font-size: 140px;
-    line-height: normal;
+    font-weight: 400;
 }
 
-.not-found__error-name {
+.not-found__message {
     margin: 0;
-    font-weight: 400;
+    margin-top: 9px;
     font-size: 16px;
-    line-height: normal;
+    font-weight: 400;
+}
+
+.not-found__link {
+    margin-top: 184px;
+    text-decoration: none;
 }
 
 .not-found__button {
-    border: none;
+    padding: 0;
     background-color: transparent;
-    cursor: pointer;
-    font-weight: 400;
+    border: none;
+    color: var(--link-font-color);
     font-size: 14px;
-    line-height: normal;
-    color: #2BE080;
-    padding: 184px 0 0;
-    bottom: 60px;
-    transition: all .3s ease;
+    font-weight: 400;
 }
 
-.not-found__button:hover {
-    opacity: .8;
+@media screen and (max-width: 1280px) {
+    .not-found__title {
+        margin-top: calc(412px + (250 - 412) * (100vw - 768px) / (1280 - 768));
+    }
 }
 
-@media screen and (max-width: 800px) {
-    .not-found {
-        padding-top: 406px;
+@media screen and (max-width: 768px) {
+    .not-found__title {
+        margin-top: calc(332px + (412 - 332) * (100vw - 320px) / (768 - 320));
+        font-size: 18vw;
+    }
+
+    .not-found__message {
+        margin-top: calc(13px + (9 - 13) * (100vw - 320px) / (768 - 320));
+        font-size: 2.1vw;
+    }
+
+    .not-found__link {
+        margin-top: calc(281px + (184 - 281) * (100vw - 320px) / (768 - 320));
     }
 
     .not-found__button {
-        bottom: 212px;
+        font-size: 1.8vw;
     }
 }
 
-@media screen and (max-width: 450px) {
-
-    .not-found {
-        padding-top: 329px;
+@media screen and (max-width: 380px) {
+    .not-found__title {
+        margin-top: 332px;
+        font-size: 25vw;
     }
 
-    .not-found__text-container {
-        transform: translateX(0);
-        gap: 10px;
+    .not-found__message {
+        margin-top: 13px;
+        font-size: 3.8vw;
     }
 
-    .not-found__error {
-        font-size: 80px;
-    }
-
-    .not-found__error-name {
-        font-size: 12px;
-        line-height: 1.25;
+    .not-found__link {
+        margin-top: 281px;
     }
 
     .not-found__button {
-        padding-top: 284px;
-        transform: translateX(0);
-        font-size: 12px;
-        line-height: 1.25;
+        font-size: 3.7vw;
     }
 }

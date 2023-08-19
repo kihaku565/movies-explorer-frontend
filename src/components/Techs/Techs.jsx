@@ -1,39 +1,36 @@
-import "./Techs.css";
+import React from 'react';
+import './Techs.css';
 
-export default function Techs() {
+const technologies = [
+    'HTML',
+    'CSS',
+    'JS',
+    'React',
+    'Git',
+    'Express.js',
+    'mongoDB',
+];
+
+function Techs() {
     return (
-        <section className="techs" id="techs">
+        <section className="techs" id="techs" aria-label="Technologies">
             <div className="techs__container">
                 <h2 className="techs__title">Технологии</h2>
-                <h3 className="techs__quantity">7 технологий</h3>
+                <h3 className="techs__subtitle">7 технологий</h3>
                 <p className="techs__about">
                     На курсе веб-разработки мы освоили технологии, которые применили в
                     дипломном проекте.
                 </p>
-                <ul className="techs__stack">
-                    <li className="techs__stack-item">
-                        HTML
-                    </li>
-                    <li className="techs__stack-item">
-                        CSS
-                    </li>
-                    <li className="techs__stack-item">
-                        JS
-                    </li>
-                    <li className="techs__stack-item">
-                        React
-                    </li>
-                    <li className="techs__stack-item">
-                        Git
-                    </li>
-                    <li className="techs__stack-item">
-                        Express.js
-                    </li>
-                    <li className="techs__stack-item">
-                        mongoDB
-                    </li>
+                <ul className="techs__list">
+                    {technologies.map((tech) => (
+                        <li key={tech} className="techs__item">
+                            {tech}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </section>
     );
-}
+};
+
+export default Techs;

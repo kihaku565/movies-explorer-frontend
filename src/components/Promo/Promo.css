@@ -1,134 +1,107 @@
 .promo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-top: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding-top: 160px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: var(--underlay);
 }
 
 .promo__container {
-    background-color: #f5f5f5;
-    max-width: calc((100vw - 768px) / (1280 - 768) * (1200 - 728) + 728px);
-    width: 100%;
-    border-radius: 10px;
-    padding: 160px 0 30px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-.promo__about-project {
-    display: flex;
-    flex-direction: column;
-    max-width: 730px;
-    gap: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 151px;
+  margin: 0 auto;
+  max-width: 730px;
 }
 
 .promo__title {
-    text-align: center;
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 58px;
-    letter-spacing: -2px;
-    margin: 0;
-}
-
-.promo__description {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    opacity: .5;
-    max-width: 310px;
-    margin: 0;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  text-align: center;
+  color: var(--color);
+  margin: 0 auto;
 }
 
 .promo__learn-more-link {
-    background-color: #e8e8e8;
-    margin-top: 110px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    border-radius: 3px;
-    padding: 9px 19px;
-    max-width: 89px;
-    text-align: center;
-    transition: all .1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 129px;
+  margin: 146px 0 0;
+  padding: 10px 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: calc(16 / 12);
+  letter-spacing: normal;
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  box-sizing: border-box;
+  opacity: 0.7;
+  transition: opacity 0.4s;
 }
 
 .promo__learn-more-link:hover {
-    transform: scale(1.05);
-    opacity: .7;
+  opacity: 0.7;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1280px) {
+  .promo {
+    max-width: calc(728px + (1200 - 728) * (100vw - 768px) / (1280 - 768));
+    max-height: 834px;
+    padding-top: calc(351px + (160 - 351) * (100vw - 768px) / (1280 - 768));
+  }
 
-    .promo__container {
-        align-items: center;
-        flex-direction: column-reverse;
-        gap: 48px;
-        max-width: calc((100vw - 320px) / (768 - 320) * (728 - 292) + 292px);
-        padding: 351px 0 30px;
-    }
+  .promo__container {
+    gap: calc(314px + (151 - 314) * (100vw - 768px) / (1280 - 768));
+  }
 
-    .promo__title {
-        font-size: 40px;
-        font-style: normal;
-        line-height: 52px;
-        letter-spacing: -1.6px;
-    }
-
-    .promo__description {
-        text-align: center;
-        max-width: 260px;
-    }
-
-    .promo__about-project {
-        align-items: center;
-        gap: 313px;
-    }
-
-    .promo__learn-more-link {
-        margin-top: 70px;
-    }
+  .promo__title {
+    font-size: calc(40px + (50 - 40) * (100vw - 768px) / (1280 - 768));
+  }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 768px) {
+  .promo {
+    max-width: calc(292px + (728 - 292) * (100vw - 320px) / (768 - 320));
+    max-height: auto;
+    padding-top: calc(220px + (350 - 220) * (100vw - 320px) / (768 - 320));
+    padding-bottom: calc(17px + (30 - 17) * (100vw - 320px) / (768 - 320));
+  }
 
-    .promo {
-        padding-top: 14px;
-    }
+  .promo__container {
+    gap: calc(212px + (314 - 212) * (100vw - 320px) / (768 - 320));
+  }
 
-    .promo__container {
-        padding: 220px 0 17px;
-        gap: 46px;
-    }
-
-    .promo__logo {
-        max-width: 210px;
-        transition: all .1s ease;
-    }
-
-    .promo__title {
-        font-size: 29px;
-        line-height: 37px;
-        letter-spacing: -1.16px;
-    }
-
-    .promo__about-project {
-        gap: 212px;
-    }
-
-    .promo__learn-more-link {
-        margin-top: 54px;
-    }
+  .promo__title {
+    font-size: calc(29px + (40 - 29) * (100vw - 320px) / (768 - 320));
+    line-height: 52px;
+    letter-spacing: -1.6px;
+    max-width: 80%;
+  }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
+  .promo {
+    max-width: 292px;
+    max-height: 586px;
+    padding: 220px 0 17px;
+  }
 
-    .promo__container {
-        max-width: 292px;
-    }
+  .promo__container {
+    gap: 212px;
+  }
+
+  .promo__title {
+    font-size: 29px;
+    line-height: 37px;
+    letter-spacing: -1.16px;
+    max-width: 100%;
+  }
 }

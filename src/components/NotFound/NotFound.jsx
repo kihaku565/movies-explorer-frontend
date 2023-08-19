@@ -1,16 +1,17 @@
-import "./NotFound.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './NotFound.css';
 
-
-export default function NotFound({ goBack }) {
-  return (
-    <main className="not-found">
-      <section className="not-found__text-container">
-        <h1 className="not-found__error">404</h1>
-        <p className="not-found__error-name">Страница не найдена</p>
-      </section>
-      <button type="button" className="not-found__button" onClick={goBack}>
-        Назад
-      </button>
-    </main>
-  )
+function NotFound() {
+    return (
+        <div className="not-found">
+            <h1 className="not-found__title">404</h1>
+            <p className="not-found__message">Страница не найдена</p>
+            <Link to="/" className="not-found__link">
+                <button className="not-found__button" type="button">Назад</button>
+            </Link>
+        </div >
+    );
 }
+
+export default NotFound;

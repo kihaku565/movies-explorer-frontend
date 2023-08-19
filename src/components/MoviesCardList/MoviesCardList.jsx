@@ -1,70 +1,40 @@
+import React, { useEffect, useState } from 'react';
+import { PAGE_SIZE } from '../../utils/constants';
+import MovieCard from '../MoviesCard/MovieCard';
+import ShowMore from '../ShowMore/ShowMore';
 import './MoviesCardList.css';
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import useScreenWidth from '../../hooks/useScreenWidth.jsx';
-import { DEVICE_PARAMS } from '../../utils/constants.js';
-import { getSavedMovieCard } from '../../utils/utils.js';
-import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 
-export default function MoviesCardList({ moviesList, savedMoviesList, onLikeClick, onDeleteClick }) {
-    const screenWidth = useScreenWidth();
+function MoviesCardList({ movies, isSaved }) {
+  const [startIndex, setStartIndex] = useState(0);
+  const [visibleMovies, setVisibleMovies] = useState([]);
 
-    const { desktop, tablet, mobile } = DEVICE_PARAMS;
-    const [isMount, setIsMount] = useState(true);
-    const [showMovieList, setShowMovieList] = useState([]);
-    const [cardsShowDetails, setCardsShowDetails] = useState({ total: 12, more: 3 });
+  const handleShowMore = () => {
+    setStartIndex(prevStartIndex => prevStartIndex + PAGE_SIZE);
+  };
 
-    const location = useLocation();
+  useEffect(() => {
+    const endIndex = startIndex + PAGE_SIZE;
+    const newVisibleMovies = movies.slice(0, endIndex);
+    setVisibleMovies(newVisibleMovies);
+  }, [movies, startIndex]);
 
-    // количество отображаемых карточек при разной ширине экрана
-    useEffect(() => {
-        if (location.pathname === '/movies') {
-            if (screenWidth > desktop.width) {
-                setCardsShowDetails(desktop.cards);
-            } else if (screenWidth <= desktop.width && screenWidth > mobile.width) {
-                setCardsShowDetails(tablet.cards);
-            } else {
-                setCardsShowDetails(mobile.cards);
-            }
-            return () => setIsMount(false);
-        }
-    }, [screenWidth, isMount, desktop, tablet, mobile, location.pathname]);
+  return (
+    <section className="movies-card-list">
+      <ul className="movies-card-list__list" >
+        {visibleMovies.map((movie) => (
+          <MovieCard key={movie._id} movie={movie} isSaved={isSaved} />
+        ))}
+      </ul>
+      {movies.length > PAGE_SIZE && (
+        <ShowMore
+          isVisible={movies.length > visibleMovies.length}
+          isDisabled={movies.length <= visibleMovies.length}
+          onShowMore={handleShowMore}
+          buttonText="Ещё"
+        />
+      )}
+    </section>
+  );
+};
 
-    // изменяем отображаемый массив фильмов в зависимости от ширины экрана
-    useEffect(() => {
-        if (moviesList.length) {
-            const res = moviesList.filter((item, i) => i < cardsShowDetails.total);
-            setShowMovieList(res);
-        }
-    }, [moviesList, cardsShowDetails.total]);
-
-    // добавление карточек при клике по кнопке "Еще"
-    function handleClickMoreMovies() {
-        const start = showMovieList.length;
-        const end = start + cardsShowDetails.more;
-        const additional = moviesList.length - start;
-
-        if (additional > 0) {
-            const newCards = moviesList.slice(start, end);
-            setShowMovieList([...showMovieList, ...newCards]);
-        }
-    };
-
-    return (
-        <section className="movies-card-list">
-            <ul className="movies-card-list__list">
-                {showMovieList.map(movie =>
-                    <MoviesCard
-                        key={movie.id || movie._id}
-                        saved={getSavedMovieCard(savedMoviesList, movie)}
-                        onLikeClick={onLikeClick}
-                        onDeleteClick={onDeleteClick}
-                        movie={movie} />
-                )}
-            </ul>
-            {location.pathname === '/movies' && showMovieList.length >= 5 && showMovieList.length < moviesList.length && (
-                <button className="movies-card-list__show-more" onClick={handleClickMoreMovies}>Ещё</button>
-            )}
-        </section>
-    )
-}
+export default MoviesCardList;
