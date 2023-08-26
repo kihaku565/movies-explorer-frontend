@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import './MenuNavigation.css';
 
 function MenuNavigation({ isActive, setActive }) {
-    const location = useLocation(); // Get the current location
+    const location = useLocation();
 
     const closeMenu = () => {
         if (isActive) {

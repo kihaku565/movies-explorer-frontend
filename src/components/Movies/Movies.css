@@ -15,6 +15,7 @@
   border-bottom: 1px solid var(--border-secondary);
 }
 
+
 @media screen and (max-width: 1280px) {
   .movies-page__form {
     max-width: calc(708px + (1140 - 708) * (100vw - 768px) / (1280 - 768));

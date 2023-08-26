@@ -1,4 +1,3 @@
-/* Base Styles */
 .techs {
   width: 100%;
   max-width: 1280px;
@@ -63,7 +62,6 @@
   background: var(--underlay-accent);
 }
 
-/* Media Queries */
 @media screen and (max-width: 1280px) {
   .techs__container {
     max-width: calc(668px + (1140 - 668) * (100vw - 768px) / (1280 - 768));

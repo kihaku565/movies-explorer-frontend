@@ -1,23 +1,15 @@
 import React from 'react';
 import './ShowMore.css';
 
-function ShowMore({ onShowMore, isVisible, isDisabled, buttonText }) {
-  const buttonClassName = `show-more-button ${isDisabled ? ' show-more-button_disabled' : ''}`;
+function ShowMore({ handleClickMoreMovies }) {
 
-  const handleButtonClick = () => {
-    if (!isDisabled) {
-      onShowMore();
-    }
-  };
-
-  return isVisible && (
+  return (
     <button
-      className={buttonClassName}
       type="button"
-      onClick={handleButtonClick}
-      disabled={isDisabled}
+      className="show-more-button"
+      onClick={handleClickMoreMovies}
     >
-      {buttonText}
+      Ещё
     </button>
   );
 };

@@ -106,8 +106,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 28px;
-    margin-top: 29px;
+    gap: 35px;
+    margin-top: 31px;
+    margin-bottom: calc(446px + (623 - 446) * (100vw - 320px) / (768 - 320));
     position: static;
     transform: translateX(0);
   }
@@ -134,6 +135,10 @@
     font-weight: 500;
     padding-bottom: 4px;
   }
+
+  .menu__profile {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 380px) {
@@ -145,9 +150,7 @@
     width: 100vw;
   }
 
-  .menu__content>:last-child {
-    margin-bottom: 126px;
-  }
+  .menu__content>:last-child {}
 
   .menu__main {
     margin: 145px 0 24px;
@@ -156,13 +159,12 @@
   .menu__links {
     gap: 30px;
     margin-top: 4px;
+    margin-bottom: 446px;
   }
 
   .menu__items {
     row-gap: 15px;
   }
 
-  .menu__profile {
-    margin-bottom: 47px;
-  }
+  .menu__profile {}
 }
