@@ -27,9 +27,9 @@ function Movies({
   const [isAllMovies, setIsAllMovies] = useState([]);
 
   // Ключи для локального хранилища
-  const userMoviesKey = `${currentUser.email} - movies`; // Ключ для сохранения списка фильмов
-  const userMovieSearchKey = `${currentUser.email} - movieSearch`; // Ключ для сохранения поискового запроса
-  const userShortMoviesKey = `${currentUser.email} - shortMovies`; // Ключ для сохранения состояния чекбокса
+  const userMoviesKey = 'userMovies'; // Ключ для сохранения списка фильмов
+  const movieSearchKey = 'movieSearch'; // Ключ для сохранения поискового запроса
+  const shortMoviesKey = 'shortMovies'; // Ключ для сохранения состояния чекбокса
 
   // Функция для установки отфильтрованных фильмов и обработки информационной подсказки
   const handleSetFilteredMovies = (movies, userQuery, shortMoviesCheckbox) => {
@@ -59,8 +59,8 @@ function Movies({
   // Обработчик отправки поискового запроса
   const handleSearchSubmit = async inputValue => {
     try {
-      localStorage.setItem(userMovieSearchKey, inputValue);
-      localStorage.setItem(userShortMoviesKey, shortMovies);
+      localStorage.setItem(movieSearchKey, inputValue);
+      localStorage.setItem(shortMoviesKey, shortMovies);
 
       if (isAllMovies.length === 0) {
         setIsLoader(true);
@@ -91,7 +91,7 @@ function Movies({
       ? initialMovies
       : filterShortMovies(initialMovies);
     setFilteredMovies(updatedFilteredMovies);
-    localStorage.setItem(userShortMoviesKey, !shortMovies);
+    localStorage.setItem(shortMoviesKey, !shortMovies);
   };
 
   // Загрузка данных из локального хранилища при монтировании компонента
@@ -99,7 +99,7 @@ function Movies({
     (async () => {
       try {
         // Получаем значение чекбокса короткометражных фильмов из локального хранилища
-        const storedShortMovies = localStorage.getItem(userShortMoviesKey);
+        const storedShortMovies = localStorage.getItem(shortMoviesKey);
         setShortMovies(storedShortMovies === 'true');
         // Если есть сохраненные фильмы в локальном хранилище
         if (localStorage.getItem(userMoviesKey)) {

@@ -22,7 +22,9 @@ function MovieCard({ movie, saved, onLikeClick, onDeleteClick }) {
     const isSavedMoviesPath = location.pathname === API_ENDPOINTS.SAVED_MOVIES;
 
     if (isMoviesPath) {
-      saved ? handleDeleteClick() : handleLikeClick();
+      saved
+        ? handleDeleteClick()
+        : handleLikeClick();
     } else if (isSavedMoviesPath) {
       handleDeleteClick();
     }
