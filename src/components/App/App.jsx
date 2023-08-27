@@ -350,6 +350,10 @@ function App() {
               }>
               </Route>
             </Routes>
+            <InfoPopup
+              isInfoPopup={isInfoPopup}
+              onClose={closeInfoTooltip}
+            />
             <Preloader isOpen={isLoader} />
           </CurrentUserContext.Provider >
         )

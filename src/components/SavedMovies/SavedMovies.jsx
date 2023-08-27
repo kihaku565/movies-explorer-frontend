@@ -49,14 +49,14 @@ function SavedMovies({
     const hasNoMovies = newMoviesList.length === 0;
     setNotFound(hasNoMovies);
 
-    const infoTooltip = {
-      isOpen: true,
+    const infoNotice = {
+      isOpen: hasNoMovies, // Показываем только если поиск не нашел фильмов
       successful: !hasNoMovies,
       text: hasNoMovies
         ? MESSAGE.notFound
         : '',
     };
-    setIsInfoPopup(infoTooltip);
+    setIsInfoPopup(infoNotice);
 
     setFilteredMovies(newMoviesList);
     setShowedMovies(newMoviesList);
