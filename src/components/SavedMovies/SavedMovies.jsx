@@ -21,9 +21,6 @@ function SavedMovies({
   // Фильмы после фильтрации
   const [filteredMovies, setFilteredMovies] = useState(showedMovies);
 
-  // Ключ для сохранения состояния чекбокса коротких фильмов
-  const userShortSavedMoviesKey = `${currentUser.email} - shortSavedMovies`;
-
   // Обработчик отправки запроса поиска
   function handleSearchSubmit(inputValue) {
     const moviesList = filterMovies(savedMoviesList, inputValue, shortMovies);
@@ -34,7 +31,7 @@ function SavedMovies({
   function handleShortFilms() {
     const newShortMovies = !shortMovies;
     setShortMovies(newShortMovies);
-    localStorage.setItem(userShortSavedMoviesKey, newShortMovies);
+
     // Применяем фильтр коротких фильмов на текущем показанном списке фильмов
     const updatedShowedMovies = newShortMovies
       ? filterShortMovies(filteredMovies)
@@ -63,18 +60,12 @@ function SavedMovies({
   }
 
   useEffect(() => {
-    // Получаем состояние чекбокса коротких фильмов из localStorage
-    const shortSavedMovies = localStorage.getItem(userShortSavedMoviesKey) === 'true';
-    setShortMovies(shortSavedMovies);
-    // Обновляем список фильмов на основе состояния чекбокса
-    updateMoviesList(shortSavedMovies
+    updateMoviesList(shortMovies
       ? filterShortMovies(savedMoviesList)
       : savedMoviesList);
   }, [savedMoviesList, currentUser]);
 
   useEffect(() => {
-    // При изменении списка сохраненных фильмов обновляем состояние filteredMovies и notFound
-    setFilteredMovies(savedMoviesList);
     setNotFound(savedMoviesList.length === 0);
   }, [savedMoviesList]);
 

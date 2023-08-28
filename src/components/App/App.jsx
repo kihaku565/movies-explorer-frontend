@@ -188,6 +188,10 @@ function App() {
     try {
       setIsLoader(true);
 
+      // Сбрасываем состояния перед загрузкой данных нового пользователя
+      setCurrentUser({});
+      setLoggedIn(false); // НЕ РАБОТАЕТ НЕ РАБОТАЕТ НЕ РАБОТАЕТ
+
       const data = await mainApi.getUserInfo();
 
       if (data) {

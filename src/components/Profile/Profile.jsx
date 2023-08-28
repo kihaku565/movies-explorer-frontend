@@ -17,16 +17,19 @@ function Profile({ handleSignOut, handleProfileUpdate }) {
     !isValid
     || (currentUser.name === values.name && currentUser.email === values.email)
   );
+
   // Мемоизация функции сброса формы
   const memoizedResetForm = useCallback(() => {
     if (currentUser) {
       resetForm(currentUser, {}, true);
     }
   }, [currentUser, resetForm]);
+
   // Вызов функции сброса формы при изменении currentUser
   useEffect(() => {
     memoizedResetForm();
   }, [memoizedResetForm]);
+
   // Обработка отправки формы
   const handleSubmit = (e) => {
     e.preventDefault();
