@@ -79,8 +79,8 @@ function App() {
       const jwt = await mainApi.login(email, password);
 
       if (jwt.token) {
+        // Сохраняем JWT-токен в localStorage
         localStorage.setItem('jwt', jwt.token);
-        resetUserState();
         setLoggedIn(true);
         navigate('/movies');
         setIsInfoPopup({
@@ -103,22 +103,14 @@ function App() {
   function resetUserState() {
     setCurrentUser({});
     setLoggedIn(false);
-    setSavedMoviesList([]);
   }
 
   function clearLocalStorage() {
     localStorage.clear();
-    localStorage.removeItem('jwt');
-  }
-
-  function clearData() { // ЭТО НЕ СРАБОТАЛО =(
-    setCurrentUser({});
-    setSavedMoviesList([]);
   }
 
   // Обработчик выхода из аккаунта
   const handleSignOut = () => {
-    clearData(); // ЭТО НЕ СРАБОТАЛО =(
     resetUserState();
     // Очищаем localStorage, удаляя все сохраненные данные
     clearLocalStorage();
@@ -188,7 +180,6 @@ function App() {
       loadUserData(path);
     } else {
       // Пропускаем авторизацию и загружаем страницу
-      setLoggedIn(false);
       setLoad(true);
     }
   }, []);
@@ -197,24 +188,13 @@ function App() {
     try {
       setIsLoader(true);
 
-      // Сбрасываем состояния перед загрузкой данных нового пользователя
-      setCurrentUser({});
-      setLoggedIn(false); // ЭТО НЕ СРАБОТАЛО =(
-
       const data = await mainApi.getUserInfo();
 
-      if (data._id) {
+      if (data) {
         // Обновляем состояния для авторизации
         setLoggedIn(true);
-        console.log(1);
         setCurrentUser(data);
-        console.log(2);
         navigate(path); // Перенаправляем пользователя на текущий путь
-        console.log(3);
-      } else {
-        setLoggedIn(false);
-        clearLocalStorage();
-        navigate('/');
       }
     } catch (error) {
       showErrorPopup(error.message || 'Ошибка при загрузке данных пользователя.');
