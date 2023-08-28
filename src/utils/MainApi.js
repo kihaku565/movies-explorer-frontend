@@ -41,6 +41,14 @@ class MainApi {
       method: 'POST',
       body: JSON.stringify({ email, password }),
     });
+
+    if (response && response.token) {
+      // Обновляем заголовки с новым токеном
+      this._headers.authorization = `Bearer ${response.token}`;
+      // Сохраняем токен в localStorage
+      localStorage.setItem('jwt', response.token);
+    }
+
     return response;
   }
 
