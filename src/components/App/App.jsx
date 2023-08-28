@@ -18,6 +18,7 @@ import Profile from '../Profile/Profile.jsx';
 import NotFound from '../NotFound/NotFound.jsx';
 import Preloader from '../Preloader/Preloader.jsx';
 import InfoPopup from '../InfoPopup/InfoPopup.jsx';
+import { MESSAGE } from '../../utils/constants';
 
 function App() {
   const navigate = useNavigate();
@@ -61,11 +62,7 @@ function App() {
         throw new Error('Не удалось зарегистрироваться');
       }
     } catch (error) {
-      setIsInfoPopup({
-        isOpen: true,
-        successful: false,
-        text: error.message || 'Произошла ошибка во время регистрации.',
-      });
+      showErrorPopup(error.message || MESSAGE.registrationError)
     } finally {
       setIsLoader(false);
     }
@@ -126,9 +123,9 @@ function App() {
 
       // Обновляем состояние currentUser с новыми данными пользователя
       setCurrentUser(newUserData);
-      showSuccessPopup('Ваши данные обновлены!');
+      showSuccessPopup(MESSAGE.dataUpdateSuccess);
     } catch (error) {
-      showErrorPopup(error.message || 'Произошла ошибка при обновлении данных.');
+      showErrorPopup(error.message || MESSAGE.dataUpdateError);
     } finally {
       setIsLoader(false);
     }
@@ -142,7 +139,7 @@ function App() {
       // Обновляем список сохраненных фильмов с новым фильмом
       setSavedMoviesList((prevSavedMovies) => [newMovie, ...prevSavedMovies]);
     } catch (error) {
-      showErrorPopup(error.message || 'Ошибка при сохранении фильма.');
+      showErrorPopup(error.message || MESSAGE.saveMovieError);
     }
   }, []);
 
@@ -166,7 +163,7 @@ function App() {
         setSavedMoviesList(newMoviesList);
       }
     } catch (error) {
-      showErrorPopup(error.message || 'Ошибка при удалении фильма.');
+      showErrorPopup(error.message || MESSAGE.deleteMovieError);
     }
   }, [savedMoviesList]);
 
@@ -197,7 +194,7 @@ function App() {
         navigate(path); // Перенаправляем пользователя на текущий путь
       }
     } catch (error) {
-      showErrorPopup(error.message || 'Ошибка при загрузке данных пользователя.');
+      showErrorPopup(error.message || MESSAGE.loadUserDataError);
     } finally {
       setIsLoader(false);
       setLoad(true);
@@ -220,7 +217,7 @@ function App() {
       // Обновляем данные текущего пользователя
       setCurrentUser(userInfo);
     } catch (error) {
-      showErrorPopup(error.message || 'Ошибка при загрузке данных пользователя.');
+      showErrorPopup(error.message || MESSAGE.loadUserDataError);
     } finally {
       setIsLoader(false);
     }
@@ -244,7 +241,7 @@ function App() {
       // Обновляем состояние списка сохраненных фильмов
       setSavedMoviesList(userMoviesList);
     } catch (error) {
-      showErrorPopup(error.message || 'Ошибка при загрузке сохраненных фильмов.');
+      showErrorPopup(error.message || MESSAGE.savedMoviesLoadError);
     }
   }
 
