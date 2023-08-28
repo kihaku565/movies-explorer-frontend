@@ -38,13 +38,15 @@ function MoviesCardList({ moviesList, savedMoviesList, onLikeClick, onDeleteClic
     setCardsShowDetails(showDetails);
   }, [screenWidth, desktop, tablet, mobile, location.pathname]);
 
-  // Изменение массива отображаемых фильмов в зависимости от ширины экрана
-  useEffect(() => {
-    if (moviesList.length) {
-      const visibleMovies = moviesList.slice(0, cardsShowDetails.total);
-      setShowMovieList(visibleMovies);
-    }
-  }, [moviesList, cardsShowDetails.total]);
+ // Изменение массива отображаемых фильмов в зависимости от ширины экрана и пути
+ useEffect(() => {
+  if (moviesList.length) {
+    const visibleMovies = location.pathname === API_ENDPOINTS.SAVED_MOVIES
+      ? moviesList
+      : moviesList.slice(0, cardsShowDetails.total);
+    setShowMovieList(visibleMovies);
+  }
+}, [moviesList, cardsShowDetails.total]);
 
   // Добавление дополнительных карточек при нажатии на кнопку "Eще"
   function handleClickMoreMovies() {
