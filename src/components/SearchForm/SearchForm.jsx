@@ -46,6 +46,14 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
     }
   }, [currentUser]);
 
+  useEffect(() => {
+    // Автоматически применяем фильтрацию при изменении состояния чекбокса, находясь на нужной странице
+    if (location.pathname === API_ENDPOINTS.MOVIES) {
+      // Передаем текущее значение поиска и состояния фильтра коротких фильмов
+      handleSearchSubmit(values.search, shortMovies);
+    }
+  }, [shortMovies]);
+
   return (
     <section className="search">
       <form className="search-form" noValidate onSubmit={handleSubmit}>
