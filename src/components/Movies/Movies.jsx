@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
 import moviesApi from '../../utils/MoviesApi.js';
-import CurrentUserContext from '../../context/CurrentUserContext.jsx';
 import { transformMovieData, filterMovies, filterShortMovies, } from '../../utils/movieHelpers';
-import { MESSAGE } from '../../utils/constants';
+import { MESSAGE, STORAGE_KEYS } from '../../utils/constants'
 import './Movies.css';
 
 function Movies({
@@ -13,7 +12,6 @@ function Movies({
   savedMoviesList,
   onLikeClick,
   onDeleteClick }) {
-  const currentUser = useContext(CurrentUserContext);
 
   // Состояние чекбокса для короткометражных фильмов
   const [shortMovies, setShortMovies] = useState(false);
@@ -25,11 +23,6 @@ function Movies({
   const [notFound, setNotFound] = useState(false);
   // Все фильмы с сервера, для однократного запроса
   const [isAllMovies, setIsAllMovies] = useState([]);
-
-  // Ключи для локального хранилища
-  const userMoviesKey = 'userMovies'; // Ключ для сохранения списка фильмов
-  const movieSearchKey = 'movieSearch'; // Ключ для сохранения поискового запроса
-  const shortMoviesKey = 'shortMovies'; // Ключ для сохранения состояния чекбокса
 
   // Функция для установки отфильтрованных фильмов и обработки информационной подсказки
   const handleSetFilteredMovies = (movies, userQuery, shortMoviesCheckbox) => {
@@ -53,14 +46,14 @@ function Movies({
     setFilteredMovies(shortMoviesCheckbox
       ? filterShortMovies(moviesList)
       : moviesList);
-    localStorage.setItem(userMoviesKey, JSON.stringify(moviesList));
+    localStorage.setItem(STORAGE_KEYS.userMovies, JSON.stringify(moviesList));
   };
 
   // Обработчик отправки поискового запроса
   const handleSearchSubmit = async inputValue => {
     try {
-      localStorage.setItem(movieSearchKey, inputValue);
-      localStorage.setItem(shortMoviesKey, shortMovies);
+      localStorage.setItem(STORAGE_KEYS.movieSearch, inputValue);
+      localStorage.setItem(STORAGE_KEYS.shortMovies, shortMovies);
 
       if (isAllMovies.length === 0) {
         setIsLoader(true);
@@ -91,7 +84,7 @@ function Movies({
       ? initialMovies
       : filterShortMovies(initialMovies);
     setFilteredMovies(updatedFilteredMovies);
-    localStorage.setItem(shortMoviesKey, !shortMovies);
+    localStorage.setItem(STORAGE_KEYS.shortMovies, !shortMovies);
   };
 
   // Загрузка данных из локального хранилища при монтировании компонента
@@ -99,12 +92,12 @@ function Movies({
     (async () => {
       try {
         // Получаем значение чекбокса короткометражных фильмов из локального хранилища
-        const storedShortMovies = localStorage.getItem(shortMoviesKey);
+        const storedShortMovies = localStorage.getItem(STORAGE_KEYS.shortMovies);
         setShortMovies(storedShortMovies === 'true');
         // Если есть сохраненные фильмы в локальном хранилище
-        if (localStorage.getItem(userMoviesKey)) {
+        if (localStorage.getItem(STORAGE_KEYS.userMovies)) {
           // Получаем список фильмов из локального хранилища
-          const movies = JSON.parse(localStorage.getItem(userMoviesKey));
+          const movies = JSON.parse(localStorage.getItem(STORAGE_KEYS.userMovies));
           setInitialMovies(movies);
           // Устанавливаем фильтрованные фильмы в зависимости от состояния чекбокса короткометражных фильмов
           setFilteredMovies(storedShortMovies === 'true'

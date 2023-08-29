@@ -47,4 +47,11 @@ const DISPLAY_SETTINGS = {
   additionalCardsToShow: 3,
 };
 
-export { API_URL, API_ENDPOINTS, SHORT_MOVIE, PAGE_SIZE, MESSAGE, DISPLAY_SETTINGS };
+// Ключи для локального хранилища
+const STORAGE_KEYS = {
+  userMovies: 'userMovies', // Ключ для сохранения списка фильмов
+  movieSearch: 'movieSearch', // Ключ для сохранения поискового запроса
+  shortMovies: 'shortMovies', // Ключ для сохранения состояния чекбокса
+}
+
+export { API_URL, API_ENDPOINTS, SHORT_MOVIE, PAGE_SIZE, MESSAGE, DISPLAY_SETTINGS, STORAGE_KEYS };

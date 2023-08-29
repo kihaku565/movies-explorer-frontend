@@ -3,21 +3,20 @@ import { useLocation } from 'react-router-dom';
 import useFormValidator from '../../hooks/useFormValidator';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import CurrentUserContext from '../../context/CurrentUserContext.jsx';
-import { MESSAGE } from '../../utils/constants';
-import { API_ENDPOINTS } from '../../utils/constants';
+import { MESSAGE, API_ENDPOINTS, STORAGE_KEYS } from '../../utils/constants';
 import './SearchForm.css';
 
 function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
   // Получаем текущего пользователя из контекста
   const currentUser = useContext(CurrentUserContext);
+  // Получаем текущий путь маршрута
+  const location = useLocation();
   // Используем хук формы для управления состоянием и валидации
   const {
     values,
     handleInputChange,
     isValid,
-    setIsValid} = useFormValidator();
-  // Получаем текущий путь маршрута
-  const location = useLocation();
+    setIsValid } = useFormValidator();
   // Состояние для сообщения об ошибке
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -38,10 +37,10 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
   // Загружаем значение поиска из локального хранилища
   useEffect(() => {
     if (location.pathname === API_ENDPOINTS.MOVIES) {
-      const searchValue = localStorage.getItem(`${currentUser.email} - movieSearch`);
+      const searchValue = localStorage.getItem(STORAGE_KEYS.movieSearch);
       // Если есть значение поиска, устанавливаем его и помечаем форму как валидную
       if (searchValue) {
-        values.search = searchValue;
+        values.search = searchValue; // Устанавливаем текущее значение
         setIsValid(true);
       }
     }
