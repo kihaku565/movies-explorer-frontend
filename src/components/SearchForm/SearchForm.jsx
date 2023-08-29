@@ -15,25 +15,18 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
     values,
     handleInputChange,
     isValid,
-    setIsValid,
-    resetForm } = useFormValidator();
+    setIsValid} = useFormValidator();
   // Получаем текущий путь маршрута
   const location = useLocation();
   // Состояние для сообщения об ошибке
   const [errorMessage, setErrorMessage] = useState('');
-
-  // Обработка и очистка формы поиска
-  const handleInputField = () => {
-    resetForm();
-    handleSearchSubmit(values.search);
-  };
 
   // Обработчик отправки формы
   const handleSubmit = (e) => {
     e.preventDefault();
     // Проверяем валидность формы перед отправкой
     isValid
-      ? handleInputField()
+      ? handleSearchSubmit(values.search)
       : setErrorMessage(MESSAGE.enterKeyword);
   };
 
