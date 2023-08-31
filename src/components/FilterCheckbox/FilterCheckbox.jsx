@@ -2,6 +2,7 @@ import React from 'react';
 import './FilterCheckbox.css';
 
 function FilterCheckbox({ handleShortFilms, shortMovies }) {
+
   return (
     <div className="filter-checkbox">
       <label className="filter-checkbox__label">

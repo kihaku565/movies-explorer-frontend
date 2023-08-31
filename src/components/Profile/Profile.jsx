@@ -5,7 +5,9 @@ import useFormValidator from '../../hooks/useFormValidator'
 import './Profile.css';
 
 function Profile({ handleSignOut, handleProfileUpdate }) {
+
   const currentUser = useContext(CurrentUserContext);
+
   const {
     values,
     errors,

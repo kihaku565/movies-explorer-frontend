@@ -19,20 +19,27 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
     setIsValid } = useFormValidator();
   // Состояние для сообщения об ошибке
   const [errorMessage, setErrorMessage] = useState('');
+  // Состояние для отслеживания того, была ли форма отправлена хотя бы раз
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   // Обработчик отправки формы
   const handleSubmit = (e) => {
     e.preventDefault();
     // Проверяем валидность формы перед отправкой
-    isValid
-      ? handleSearchSubmit(values.search)
-      : setErrorMessage(MESSAGE.enterKeyword);
+    if (isValid) {
+      handleSearchSubmit(values.search);
+      setIsFormSubmitted(true); // Устанавливаем флаг после успешной отправки
+    } else {
+      setErrorMessage(MESSAGE.enterKeyword);
+    }
   };
 
   // Сбрасываем сообщение об ошибке при изменении валидности формы
   useEffect(() => {
-    setErrorMessage('');
-  }, [isValid]);
+    if (isFormSubmitted) {
+      setErrorMessage('');
+    }
+  }, [isValid, isFormSubmitted]);
 
   // Загружаем значение поиска из локального хранилища
   useEffect(() => {
@@ -47,10 +54,17 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
   }, [currentUser]);
 
   useEffect(() => {
-    // Автоматически применяем фильтрацию при изменении состояния чекбокса, находясь на нужной странице
+    // Применяем фильтрацию при изменении состояния чекбокса, находясь на нужной странице
     if (location.pathname === API_ENDPOINTS.MOVIES) {
       // Передаем текущее значение поиска и состояния фильтра коротких фильмов
       handleSearchSubmit(values.search, shortMovies);
+    }
+  }, [shortMovies]);
+
+  useEffect(() => {
+    // Выполняем handleSubmit при изменении состояния чекбокса, находясь на нужной странице
+    if (location.pathname === API_ENDPOINTS.SAVED_MOVIES) {
+      handleSubmit({ preventDefault: () => { } });
     }
   }, [shortMovies]);
 
@@ -74,7 +88,7 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
         </button>
       </form>
       {/* Отображение сообщения об ошибке */}
-      {errorMessage && <span className="search-form__error">{errorMessage}</span>}
+      {errorMessage && isFormSubmitted && <span className="search-form__error">{errorMessage}</span>}
       {/* Фильтр коротких фильмов */}
       <FilterCheckbox
         shortMovies={shortMovies}

@@ -32,7 +32,7 @@
 }
 
 .search-form__input:focus {
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .search-form__input::placeholder {

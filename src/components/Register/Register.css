@@ -59,8 +59,7 @@
 }
 
 .register__input:focus {
-  outline: none;
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .register__input::placeholder {

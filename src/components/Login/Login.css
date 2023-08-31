@@ -61,8 +61,7 @@
 }
 
 .login__input:focus {
-  outline: none;
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .login__input::placeholder {

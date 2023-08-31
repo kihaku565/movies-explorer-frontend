@@ -10,6 +10,7 @@ function SavedMovies({
   onDeleteClick,
   savedMoviesList,
   setIsInfoPopup }) {
+
   const currentUser = useContext(CurrentUserContext);
 
   // Состояние чекбокса для коротких фильмов
