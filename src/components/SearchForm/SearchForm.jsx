@@ -49,6 +49,10 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
       if (searchValue) {
         values.search = searchValue; // Устанавливаем текущее значение
         setIsValid(true);
+      } else {
+        // Если нет значения поиска, устанавливаем пустую строку и форму как невалидную
+        values.search = '';
+        setIsValid(false);
       }
     }
   }, [currentUser]);
