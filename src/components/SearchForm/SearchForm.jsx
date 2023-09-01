@@ -59,15 +59,15 @@ function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
 
   useEffect(() => {
     // Применяем фильтрацию при изменении состояния чекбокса, находясь на нужной странице
-    if (location.pathname === API_ENDPOINTS.MOVIES) {
+    if (location.pathname === API_ENDPOINTS.MOVIES && isFormSubmitted) {
       // Передаем текущее значение поиска и состояния фильтра коротких фильмов
       handleSearchSubmit(values.search, shortMovies);
     }
   }, [shortMovies]);
 
   useEffect(() => {
-    // Выполняем handleSubmit при изменении состояния чекбокса, находясь на нужной странице
-    if (location.pathname === API_ENDPOINTS.SAVED_MOVIES) {
+    // Применяем фильтрацию при изменении состояния чекбокса, находясь на нужной странице
+    if (location.pathname === API_ENDPOINTS.SAVED_MOVIES && isFormSubmitted) {
       handleSubmit({ preventDefault: () => { } });
     }
   }, [shortMovies]);
