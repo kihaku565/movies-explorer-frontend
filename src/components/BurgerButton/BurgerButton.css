@@ -1,0 +1,113 @@
+@media screen and (max-width: 768px) {
+  .burger {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+  }
+
+  .burger__button {
+    background-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 23px;
+    margin-right: 8px;
+    width: 28px;
+  }
+
+  .burger__button::before,
+  .burger__button span,
+  .burger__button::after {
+    height: 3px;
+    width: 28px;
+  }
+
+  .burger__button::before {
+    background-color: #FFF;
+    content: '';
+    position: absolute;
+    transition: all 0.6s ease-in-out;
+    transform-origin: 0% 0%;
+  }
+
+  .burger__button span {
+    background-color: #FFF;
+    position: absolute;
+    top: 10px;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .burger__button::after {
+    background-color: #FFF;
+    content: '';
+    position: absolute;
+    top: 20px;
+    transition: all 0.6s ease-in-out;
+    transform-origin: 0% 100%;
+  }
+
+  .burger__button-active {
+    height: 18px;
+    margin-right: 0;
+    width: 18px;
+  }
+
+  .burger__button-active::before,
+  .burger__button-active span,
+  .burger__button-active::after {
+    width: 22px;
+  }
+
+  .burger__button-active::before {
+    transform: rotate(45deg) translateX(3px) translateY(-1px);
+  }
+
+  .burger__button-active span {
+    transform: scaleY(0);
+  }
+
+  .burger__button-active::after {
+    transform: rotate(-45deg) translateX(5px) translateY(-1px);
+  }
+
+  .burger__button:hover {
+    opacity: 0.7;
+  }
+}
+
+@media screen and (max-width: 380px) {
+
+  .burger__button {
+    margin-right: 3px;
+  }
+
+  .burger__button::before,
+  .burger__button span,
+  .burger__button::after {
+    height: 2.5px;
+    width: 22px;
+  }
+
+  .burger__button::before {
+    top: 1px;
+  }
+
+  .burger__button::after {
+    top: 19px;
+  }
+
+  .burger__button-active {
+    margin-right: 6px;
+  }
+
+  .burger__button-active::before {
+    transform: rotate(45deg) translateX(-4px) translateY(-8px);
+  }
+
+  .burger__button-active span {
+    transform: scaleY(0);
+  }
+
+  .burger__button-active::after {
+    transform: rotate(-45deg) translateX(10px) translateY(-7px);
+  }
+}

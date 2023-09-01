@@ -1,13 +1,22 @@
-import "./FilterCheckbox.css";
+import React from 'react';
+import './FilterCheckbox.css';
 
-export default function FilterCheckbox() {
-    return (
-        <div className="filter">
-            <label className="filter-container">
-                <input className="filter__checkbox" type="checkbox" />
-                <span className="filter__tumbler"></span>
-            </label>
-            <p className="filter__text">Короткометражки</p>
-        </div >
-    );
+function FilterCheckbox({ handleShortFilms, shortMovies }) {
+
+  return (
+    <div className="filter-checkbox">
+      <label className="filter-checkbox__label">
+        <input
+          className="filter-checkbox__input"
+          type="checkbox"
+          checked={shortMovies}
+          onChange={handleShortFilms}
+        />
+        <span className="filter-checkbox__slider"></span>
+      </label>
+      <p className="filter-checkbox__text">Короткометражки</p>
+    </div>
+  );
 }
+
+export default FilterCheckbox

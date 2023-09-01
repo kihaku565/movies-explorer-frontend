@@ -1,36 +1,5 @@
-# movies-explorer-frontend
+макет https://www.figma.com/file/fhp7XBbCH4yObJYsLmyRRv/ReDiplom?node-id=891%3A3857&mode=dev
 
-### Дипломная работа по курсу веб-разработчик от Яндекс Практикум
+домен http://mv-expl.matyushkin.nomoredomains.xyz
 
-Данное вэб-приложение является сайтом-портфолио и мини-кинопоиском, открывающимся после регистрации
-
-## Используемые технологии
-
-* React
-* JS
-* HTML
-* CSS
-
-## Функциональность
-
-* 
-
-## Директории
-
-`/components` — папка с фунциональными компонентами
-`/context` — папка с контекстом
-`/hooks` — папка с кастомными хуками
-`/images` — папка c изображениями
-`/vendor` — папка с кодом сторонних разработчиков
-`/utils` — папка с файлами, требуемых для работы сервиса
-
-## Запуск проекта
-
-`npm i` — установка зависимостей
-`mongod` — запускает mongodDB
-`npm run start` — запускает приложение
-
-## Адрес веб-приложения:
-
-* Домен, по которуму доступно приложение https://mv-expl.matyushkin.nomoredomains.xyz
-* Ссылка на индивидульный макет https://www.figma.com/file/fev3yHtvXIHsx3SIMkbP3c/Diploma?node-id=11339%3A4277&mode=dev, по которому верстался проект
+пул реквест https://github.com/kihaku565/movies-explorer-frontend/pull/2

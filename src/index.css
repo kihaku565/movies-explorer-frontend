@@ -1,0 +1,35 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+#root {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-feature-settings: 'clig' off, 'liga' off;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+
+  /* Palette */
+
+  /* Font */
+  color: #FFF;
+  --secondary-font-color: #8B8B8B;
+  --error-font-color: #EE3465;
+  --link-font-color: #4285F4;
+
+  /* Design elements */
+  background: #202020;
+  --background: #202020;
+  --underlay: #272727;
+  --input-background: #2F2F2F;
+  --underlay-accent: #303030;
+  --profile: #313131;
+  --accent-color: #3DDC84;
+  --border-color: #DADADA;
+  --border-secondary: #424242;
+  --button: #4285F4;
+}
+
+/** { outline: 1px solid red; } */

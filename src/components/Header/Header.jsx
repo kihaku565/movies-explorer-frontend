@@ -1,19 +1,22 @@
-import { Link } from 'react-router-dom';
+import React from "react";
 import './Header.css';
-import Navigation from '../Navigation/Navigation.jsx';
-import logo from '../../images/logo.svg';
+import { Link } from 'react-router-dom';
+import AuthNavigation from '../AuthNavigation/AuthNavigation';
+import Navigation from '../Navigation/Navigation';
 
-function Header({ authorized, onClickBurger, isBurgerOpened }) {
+function Header({ loggedIn }) {
+  const renderNav = () => {
+    return loggedIn ? <Navigation /> : <AuthNavigation />;
+  };
+
   return (
-    <header className="header">
-      <div className="header__container">
-        <Link to="/" className="header__link">
-          <img src={logo} alt="Логотип" />
-        </Link>
-        <Navigation authorized={authorized} onClickBurger={onClickBurger} isBurgerOpened={isBurgerOpened} />
-      </div>
+    <header className={`header ${!loggedIn ? 'header-auth' : ''}`}>
+      <section className="header__container">
+        <Link className="header__logo-link" to="/" />
+        {renderNav()}
+      </section>
     </header>
   );
 }
 
-export default Header;
+export default React.memo(Header);

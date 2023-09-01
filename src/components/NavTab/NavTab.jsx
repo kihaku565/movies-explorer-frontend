@@ -1,22 +1,21 @@
-import React from "react";
-
-import "./NavTab.css";
+import React from 'react';
+import './NavTab.css';
 
 function NavTab() {
   return (
     <nav>
-      <ul className="nav-tab">
+      <ul className="nav-list">
         <li>
-          <a className="nav-tab__link" href="#about"> О проекте</a>
+          <a className="nav-list__link" href="#about">О проекте</a>
         </li>
         <li>
-          <a className="nav-tab__link" href="#techs"> Технологии</a>
+          <a className="nav-list__link" href="#techs">Технологии</a>
         </li>
         <li>
-          <a className="nav-tab__link" href="#student"> Студент</a>
+          <a className="nav-list__link" href="#student">Студент</a>
         </li>
       </ul>
-    </nav >
+    </nav>
   );
 }
 
